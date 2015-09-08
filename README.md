@@ -3,6 +3,14 @@
 A C# library that provides a simple way to retrieve various data features from Wunderground personal weather stations (pws).
 This project is set up for CPP students and other entry level C# devs to gain experience. It's also set up for those more advanced to help in a higher level role.
 
+
+**Wunderground Information**
+
+Weather Underground, a commercial weather service, provides real-time weather information via the Internet. 
+Weather Underground provides weather reports for most major cities across the world on its website, as well as local weather reports for newspapers and websites.
+
+https://en.wikipedia.org/wiki/Weather_Underground_(weather_service)
+
 **Wunderground Data features included at present:**
 
 * Astronomy
