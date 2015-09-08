@@ -1,7 +1,7 @@
 # WundergroundNetLib
+[![Join the chat at https://gitter.im/MorphicDev/WundergroundNetLib](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/MorphicDev/WundergroundNetLib?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 ## Description
 
-[![Join the chat at https://gitter.im/MorphicDev/WundergroundNetLib](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/MorphicDev/WundergroundNetLib?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 A C# library that provides a simple way to retrieve various data features from Wunderground personal weather stations (pws).
 This project is set up for CPP students and other entry level C# devs to gain experience. It's also set up for those more advanced to help in a higher level role.
 
