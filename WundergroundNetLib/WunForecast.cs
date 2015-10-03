@@ -162,7 +162,7 @@ namespace WundergroundNetLib
         public Simpleforecast simpleforecast { get; set; }
     }
 
-    public class WunForecast
+    public class WunForecast : IWunData
     {
         public ForecastResponse response { get; set; }
         public Forecast forecast { get; set; }
