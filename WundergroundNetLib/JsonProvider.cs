@@ -7,9 +7,9 @@ using System.Net;
 
 namespace WundergroundNetLib
 {
-    public static class JsonProvider
+    public class JsonProvider
     {
-        public static string DownloadJsonString(Uri uri)
+        public string DownloadJsonString(Uri uri)
         {
             WebClient webClient = new WebClient();
             return webClient.DownloadString(uri);

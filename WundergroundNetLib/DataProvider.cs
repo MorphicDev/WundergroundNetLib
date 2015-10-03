@@ -15,17 +15,19 @@ namespace WundergroundNetLib
         Kaitaia_Northland_NZ
     }
 
-    public static class DataProvider
+    public class DataProvider
     {
-        public static T GetData<T>(PwsGeographicLocation location, WunDataFeatures dataFeatures)
+        public T GetData<T>(PwsGeographicLocation location, WunDataFeatures dataFeatures)
         {
+            UriProvider uriProvider = new UriProvider();
             string pwsIdentifier = GetPwsIdentifier(location);
-            Uri pwsUri = UriProvider.CreateWunUri(dataFeatures, pwsIdentifier);
-            string jsonData = JsonProvider.DownloadJsonString(pwsUri);
+            Uri pwsUri = uriProvider.CreateWunUri(dataFeatures, pwsIdentifier);
+            JsonProvider jsonProvider = new JsonProvider();
+            string jsonData = jsonProvider.DownloadJsonString(pwsUri);
             return JsonConvert.DeserializeObject<T>(jsonData);
         }
 
-        public static string GetPwsIdentifier(PwsGeographicLocation location)
+        public string GetPwsIdentifier(PwsGeographicLocation location)
         {
             string pwsIdentifier = "";
             switch (location)
