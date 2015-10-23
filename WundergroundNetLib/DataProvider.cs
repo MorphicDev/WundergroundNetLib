@@ -17,7 +17,7 @@ namespace WundergroundNetLib
 
     public class DataProvider
     {
-        public T GetData<T>(PwsGeographicLocation location, WunDataFeatures dataFeatures)
+        public T GetData<T>(PwsGeographicLocation location, WunDataFeatures dataFeatures) where T : IWunData
         {
             UriProvider uriProvider = new UriProvider();
             string pwsIdentifier = GetPwsIdentifier(location);

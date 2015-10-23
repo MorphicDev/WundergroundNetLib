@@ -124,7 +124,7 @@ namespace WundergroundNetLib
         public string nowcast { get; set; }
     }
 
-    public class WunConditions
+    public class WunConditions : IWunData
     {
         public ConditionsResponse response { get; set; }
         public CurrentObservation current_observation { get; set; }

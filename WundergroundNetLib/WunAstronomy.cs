@@ -72,7 +72,7 @@ namespace WundergroundNetLib
         public Sunset2 sunset { get; set; }
     }
 
-    public class WunAstronomy
+    public class WunAstronomy : IWunData
     {
         public AstroResponse response { get; set; }
         public MoonPhase moon_phase { get; set; }
