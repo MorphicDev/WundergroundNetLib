@@ -30,8 +30,6 @@ namespace WundergroundNetLib
             HttpClient client = new HttpClient();
             HttpResponseMessage response = await client.GetAsync(uri);
             uriContent = await response.Content.ReadAsStringAsync();
-            //test
-            Console.WriteLine("JSONPROVIDER: If this goes first then I'm doing this wrong");
             return uriContent;
         }
     }
