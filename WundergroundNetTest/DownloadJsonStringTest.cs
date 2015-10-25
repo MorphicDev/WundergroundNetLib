@@ -13,7 +13,8 @@ namespace WundergroundNetTest
             // Arrange
             bool actualResultValue = false;
             bool expectedResultValue = true;
-            Uri testUri = new Uri("http://api.wunderground.com/api/eaeb092839bd9885/pws/astronomy/q/pws:INORTHLA43.json");
+            UriProvider uriProvider = new UriProvider();
+            Uri testUri = uriProvider.CreateWunUri(WunDataFeatures.astronomy, "INORTHLA43");
             JsonProvider jsonProvider = new JsonProvider();
 
             //Act
@@ -28,10 +29,9 @@ namespace WundergroundNetTest
                 actualResultValue = true;
                 Console.WriteLine("false");
             }
-            
+
             //Assert
             Assert.AreEqual(expectedResultValue, actualResultValue);
-
         }
     }
 }
