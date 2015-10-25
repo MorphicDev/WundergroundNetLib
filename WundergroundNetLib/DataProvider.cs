@@ -30,7 +30,7 @@ namespace WundergroundNetLib
             //return JsonConvert.DeserializeObject<T>(jsonData);
             #endregion
 
-            //New Code that calls Asynchornious method for downloading JSON file
+            //New Code that calls async method for downloading JSON file
             Task<string> jsonData = jsonProvider.DownloadJsonStringAsync(pwsUri);
             return JsonConvert.DeserializeObject<T>(jsonData.Result);
 
