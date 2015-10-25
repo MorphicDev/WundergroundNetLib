@@ -23,8 +23,20 @@ namespace WundergroundNetLib
             string pwsIdentifier = GetPwsIdentifier(location);
             Uri pwsUri = uriProvider.CreateWunUri(dataFeatures, pwsIdentifier);
             JsonProvider jsonProvider = new JsonProvider();
+            Console.WriteLine("This will test whether I've done async right");
+            //#Legacy Code#
+            #region Old Code
             string jsonData = jsonProvider.DownloadJsonString(pwsUri);
+            Console.WriteLine("GETDATA: If this goes first then I'm doing this wrong");
             return JsonConvert.DeserializeObject<T>(jsonData);
+            #endregion
+
+            //New Code that calls Asynchornious method for downloading JSON file
+            //Task<string> jsonData = jsonProvider.DownloadJsonStringAsync(pwsUri);
+            //Console.WriteLine("GETDATA: If this goes first then I'm doing this right");
+            //return JsonConvert.DeserializeObject<T>(jsonData.Result);
+
+
         }
 
         public string GetPwsIdentifier(PwsGeographicLocation location)
