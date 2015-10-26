@@ -14,13 +14,13 @@ namespace WundergroundNetLib
         public string DownloadJsonString(Uri uri)
         {
             WebClient webClient = new WebClient();
-            //test
-            Console.WriteLine("JSONPROVIDER: If this goes first then I'm doing this right");
             return webClient.DownloadString(uri);
         }
 
         /// <summary>
-        /// This method does the same job as previous DownloadJsonString method, but this time we download JSON string asynchronously using HttpClient. This is implemented to improve application responsiveness.
+        /// This method does the same job as previous DownloadJsonString method, 
+        /// but this time we download JSON string asynchronously using HttpClient. 
+        /// This is implemented to improve application responsiveness.
         /// </summary>
         /// <param name="uri"></param>
         /// <returns></returns>

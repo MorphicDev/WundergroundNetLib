@@ -20,8 +20,7 @@ namespace WundergroundNetLib
         {
             string wunApiKey = Resources.WundergroundApiKey;
             Uri baseUri = new Uri("http://api.wunderground.com/api/");
-            return new Uri(baseUri, string.Format("{0}/pws/{1}/q/pws:{2}.json", wunApiKey, dataFeatures, location));
-
+            return new Uri(baseUri, string.Format($"{wunApiKey}/pws/{dataFeatures}/q/pws:{location}.json"));
             // Complete uri will look something like: http://api.wunderground.com/api/YourApiKey/pws/conditions/q/pws:ISOUTHLA34.json
         }
     }
