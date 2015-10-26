@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using WundergroundNetLib;
+using System.Threading.Tasks;
 
 namespace WundergroundNetTest
 {
@@ -13,7 +14,6 @@ namespace WundergroundNetTest
         {
             // Arrange
             bool actualResultValue = false;
-            bool expectedResultValue = true;
             UriProvider uriProvider = new UriProvider();
             Uri testUri = uriProvider.CreateWunUri(WunDataFeatures.astronomy, "INORTHLA43");
             JsonProvider jsonProvider = new JsonProvider();
@@ -23,16 +23,14 @@ namespace WundergroundNetTest
             if (string.IsNullOrEmpty(jsonData) == true)
             {
                 actualResultValue = false;
-                Console.WriteLine("True");
             }
             else
             {
                 actualResultValue = true;
-                Console.WriteLine("false");
             }
 
             //Assert
-            Assert.AreEqual(expectedResultValue, actualResultValue);
+            Assert.IsTrue(actualResultValue);
         }
 
         [TestMethod]
@@ -40,26 +38,23 @@ namespace WundergroundNetTest
         {
             // Arrange
             bool actualResultValue = false;
-            bool expectedResultValue = true;
             UriProvider uriProvider = new UriProvider();
             Uri testUri = uriProvider.CreateWunUri(WunDataFeatures.astronomy, "INORTHLA43");
             JsonProvider jsonProvider = new JsonProvider();
 
             //Act
-            string jsonData = jsonProvider.DownloadJsonString(testUri);
-            if (string.IsNullOrEmpty(jsonData) == true)
+            Task<string> jsonData = jsonProvider.DownloadJsonStringAsync(testUri);
+            if (string.IsNullOrEmpty(jsonData.Result) == true)
             {
                 actualResultValue = false;
-                Console.WriteLine("True");
             }
             else
             {
                 actualResultValue = true;
-                Console.WriteLine("false");
             }
 
             //Assert
-            Assert.AreEqual(expectedResultValue, actualResultValue);
+            Assert.IsTrue(actualResultValue);
         }
     }
 }
