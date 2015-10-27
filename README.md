@@ -2,8 +2,7 @@
 [![Join the chat at https://gitter.im/MorphicDev/WundergroundNetLib](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/MorphicDev/WundergroundNetLib?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 ## Description
 
-A C# library that provides a simple way to retrieve various data features from Wunderground personal weather stations (pws).
-This project is set up for CPP students and other entry level C# devs to gain experience. It's also set up for those more advanced to help in a higher level role.
+A Wunderground wrapper for C# that provides a simple way to retrieve various data features from Wunderground personal weather stations (pws).
 
 **Wunderground Data Features Currently Included in the Library:**
 
@@ -20,9 +19,7 @@ This project is set up for CPP students and other entry level C# devs to gain ex
 6. Your API key is available to you, but not anyone else
 
 ## TODO:
-* Divide out TODO tasks into beginner, intermediate and advanced
-* Swap JsonDataProvider.DownloadJsonString from WebClient to HTTPClient
-* Make async options for provider and converter classes
+* Divide out TODO tasks into beginner, intermediate and advance
 * Create DataInterpreter classes to help display the data in a more human readible format
 * Add exception handling where needed
 * Simplify DataProvider.GetData generic call, so you don't have to specify the data feature type twice.
