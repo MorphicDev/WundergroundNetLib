@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using System.Net;
 using Newtonsoft.Json;
 
 namespace WundergroundNetLib
@@ -17,24 +13,38 @@ namespace WundergroundNetLib
 
     public class DataProvider
     {
+        /// <summary>
+        /// Generic method for getting the data features of your choosing as a synchronous operation.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="location"></param>
+        /// <param name="dataFeatures"></param>
+        /// <returns></returns>
         public T GetData<T>(PwsGeographicLocation location, WunDataFeatures dataFeatures) where T : IWunData
         {
             UriProvider uriProvider = new UriProvider();
             string pwsIdentifier = GetPwsIdentifier(location);
             Uri pwsUri = uriProvider.CreateWunUri(dataFeatures, pwsIdentifier);
             JsonProvider jsonProvider = new JsonProvider();
+            string jsonData = jsonProvider.DownloadJsonString(pwsUri);
+            return JsonConvert.DeserializeObject<T>(jsonData);
+        }
 
-            #region Legacy Code
-            //string jsonData = jsonProvider.DownloadJsonString(pwsUri);
-            //Console.WriteLine("GETDATA: If this goes first then I'm doing this wrong");
-            //return JsonConvert.DeserializeObject<T>(jsonData);
-            #endregion
-
-            //New Code that calls async method for downloading JSON file
-            Task<string> jsonData = jsonProvider.DownloadJsonStringAsync(pwsUri);
-            return JsonConvert.DeserializeObject<T>(jsonData.Result);
-
-
+        /// <summary>
+        /// Generic method for getting the data features of your choosing as an asynchronous operation.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="location"></param>
+        /// <param name="dataFeatures"></param>
+        /// <returns></returns>
+        public async Task<T> GetDataAsync<T>(PwsGeographicLocation location, WunDataFeatures dataFeatures) where T : IWunData
+        {
+            UriProvider uriProvider = new UriProvider();
+            string pwsIdentifier = GetPwsIdentifier(location);
+            Uri pwsUri = uriProvider.CreateWunUri(dataFeatures, pwsIdentifier);
+            JsonProvider jsonProvider = new JsonProvider();
+            string jsonData = await jsonProvider.DownloadJsonStringAsync(pwsUri);
+            return JsonConvert.DeserializeObject<T>(jsonData);
         }
 
         public string GetPwsIdentifier(PwsGeographicLocation location)
