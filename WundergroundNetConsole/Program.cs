@@ -11,8 +11,8 @@ namespace WundergroundNetConsole
     {
         static void Main(string[] args)
         {
-            DataProvider KaitaiaAstroDataProvider = new DataProvider();
-            var KaitaiaAstroData = KaitaiaAstroDataProvider.GetData<WunAstronomy>(PwsGeographicLocation.Kaitaia_Northland_NZ, WunDataFeatures.astronomy);
+            DataProvider dataProvider = new DataProvider();
+            var KaitaiaAstroData = dataProvider.GetData<WunAstronomy>(PwsGeographicLocation.Kaitaia_Northland_NZ, WunDataFeatures.astronomy);
             Console.WriteLine("Sunrise in Kaitaia is: {0}:{1}", KaitaiaAstroData.sun_phase.sunrise.hour, KaitaiaAstroData.sun_phase.sunrise.minute);
             Console.ReadKey();
         }
