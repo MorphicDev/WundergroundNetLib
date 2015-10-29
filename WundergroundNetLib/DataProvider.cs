@@ -44,7 +44,7 @@ namespace WundergroundNetLib
             Uri pwsUri = uriProvider.CreateWunUri(dataFeatures, pwsIdentifier);
             JsonProvider jsonProvider = new JsonProvider();
             string jsonData = await jsonProvider.DownloadJsonStringAsync(pwsUri);
-            return JsonConvert.DeserializeObject<T>(jsonData);
+            return await Task.Factory.StartNew(() => JsonConvert.DeserializeObject<T>(jsonData));
         }
 
         public string GetPwsIdentifier(PwsGeographicLocation location)
