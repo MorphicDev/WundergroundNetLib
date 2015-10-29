@@ -46,7 +46,7 @@ namespace WundergroundNetLib
         /// <param name="dataFeatures"></param>
         /// <param name="coordinates"></param>
         /// <returns></returns>
-        public Uri CreateUriFromCoordinatesForAstroCondForecast(string coordinates)
+        public Uri CreateCombinedDataUriFromCoordinates(string coordinates)
         {
             string wunApiKey = Resources.WundergroundApiKey;
             Uri baseUri = new Uri("http://api.wunderground.com/api/");
