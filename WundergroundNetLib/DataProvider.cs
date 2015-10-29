@@ -44,13 +44,12 @@ namespace WundergroundNetLib
             Uri pwsUri = uriProvider.CreateUriFromPwsLocationForSpecificFeature(dataFeatures, pwsIdentifier);
             JsonProvider jsonProvider = new JsonProvider();
             string jsonData = await jsonProvider.DownloadJsonStringAsync(pwsUri);
-            //return JsonConvert.DeserializeObject<T>(jsonData);
             return await Task.Factory.StartNew(() => JsonConvert.DeserializeObject<T>(jsonData));
         }
 
         /// <summary>
-        /// Get the combined json file and deserialise into customised weather data classes
-        /// using your coordinates, executed as an asynchronous operation.
+        /// Get the combined json file including conditions, forecast and astronomy data and deserialise into 
+        /// customised weather data classes using your coordinates, executed as an asynchronous operation.
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="location"></param>
@@ -65,6 +64,15 @@ namespace WundergroundNetLib
             JsonProvider jsonProvider = new JsonProvider();
             string jsonData = await jsonProvider.DownloadJsonStringAsync(pwsUri);
             // Deserialise Json file into custom object
+
+            // Create Custom Object - Look through JSON file and work out what data we need
+            // http://api.wunderground.com/api/046205dccf61046c/conditions/forecast/astronomy/q/-43.537358,172.640151.json
+            // http://jsonviewer.stack.hu/#http://api.wunderground.com/api/046205dccf61046c/conditions/forecast/astronomy/q/-43.537358,172.640151.json
+            // http://jsonviewer.stack.hu/#http://api.wunderground.com/api/046205dccf61046c/conditions/forecast/astronomy/q/CA/San_Francisco.json
+            // Create method that uses LINQ to Json to deserialise json
+            // http://www.newtonsoft.com/json/help/html/QueryingLINQtoJSON.htm
+            // http://www.newtonsoft.com/json/help/html/SerializingJSONFragments.htm
+
             return JsonConvert.DeserializeObject<T>(jsonData);
         }
 

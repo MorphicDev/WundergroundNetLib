@@ -50,8 +50,8 @@ namespace WundergroundNetLib
         {
             string wunApiKey = Resources.WundergroundApiKey;
             Uri baseUri = new Uri("http://api.wunderground.com/api/");
-            return new Uri(baseUri, string.Format($"{wunApiKey}/astronomy/forecast/conditions/q/{coordinates}.json"));
-            // Complete uri will look something like: http://api.wunderground.com/api/YOURKEYHERE/astronomy/forecast/conditions/q/-43.000000,172.000000.json
+            return new Uri(baseUri, string.Format($"{wunApiKey}/conditions/forecast/astronomy/q/{coordinates}.json"));
+            // Complete uri will look something like: http://api.wunderground.com/api/YOURKEYHERE/conditions/forecast/astronomy/q/-43.000000,172.000000.json
         }
     }
 }
