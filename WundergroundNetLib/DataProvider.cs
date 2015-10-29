@@ -44,6 +44,27 @@ namespace WundergroundNetLib
             Uri pwsUri = uriProvider.CreateUriFromPwsLocationForSpecificFeature(dataFeatures, pwsIdentifier);
             JsonProvider jsonProvider = new JsonProvider();
             string jsonData = await jsonProvider.DownloadJsonStringAsync(pwsUri);
+            //return JsonConvert.DeserializeObject<T>(jsonData);
+            return await Task.Factory.StartNew(() => JsonConvert.DeserializeObject<T>(jsonData));
+        }
+
+        /// <summary>
+        /// Get the combined json file and deserialise into customised weather data classes
+        /// using your coordinates, executed as an asynchronous operation.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="location"></param>
+        /// <param name="dataFeatures"></param>
+        /// <returns></returns>
+        public async Task<T> GetCombinedDataAsync<T>(string coordinates) where T : IWunData
+        {
+            // Set Uri
+            UriProvider uriProvider = new UriProvider();
+            Uri pwsUri = uriProvider.CreateCombinedDataUriFromCoordinates(coordinates);
+            // Download Json data
+            JsonProvider jsonProvider = new JsonProvider();
+            string jsonData = await jsonProvider.DownloadJsonStringAsync(pwsUri);
+            // Deserialise Json file into custom object
             return JsonConvert.DeserializeObject<T>(jsonData);
         }
 

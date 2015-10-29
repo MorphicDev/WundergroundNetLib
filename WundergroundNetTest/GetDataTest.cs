@@ -21,7 +21,7 @@ namespace WundergroundNetTest
             // DownloadJsonString/DownloadJsonStringAsync to simulate a slow internet
             // connection and see how this effects performance.
 
-            ////Work
+            //Work
             //int incrementor = int.MinValue;
             //for (int i = int.MinValue; i < int.MaxValue; i++)
             //{
@@ -46,10 +46,10 @@ namespace WundergroundNetTest
             // Extra work for performance testing of Async vs Sync
             // IMPORTANT --- To really test this make sure to uncomment the work load below
             // as well as uncomment the Thread.Sleep(10000) lines in the 
-            // DownloadJsonString /DownloadJsonStringAsync to simulate a slow internet
+            // DownloadJsonString/DownloadJsonStringAsync to simulate a slow internet
             // connection and see how this effects performance.
 
-            ////Work
+            //Work
             //int incrementor = int.MinValue;
             //for (int i = int.MinValue; i < int.MaxValue; i++)
             //{
