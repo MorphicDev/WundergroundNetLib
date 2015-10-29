@@ -24,7 +24,7 @@ namespace WundergroundNetLib
         {
             UriProvider uriProvider = new UriProvider();
             string pwsIdentifier = GetPwsIdentifier(location);
-            Uri pwsUri = uriProvider.CreateWunUri(dataFeatures, pwsIdentifier);
+            Uri pwsUri = uriProvider.CreateUriFromPwsLocationForSpecificFeature(dataFeatures, pwsIdentifier);
             JsonProvider jsonProvider = new JsonProvider();
             string jsonData = jsonProvider.DownloadJsonString(pwsUri);
             return JsonConvert.DeserializeObject<T>(jsonData);
@@ -41,7 +41,7 @@ namespace WundergroundNetLib
         {
             UriProvider uriProvider = new UriProvider();
             string pwsIdentifier = GetPwsIdentifier(location);
-            Uri pwsUri = uriProvider.CreateWunUri(dataFeatures, pwsIdentifier);
+            Uri pwsUri = uriProvider.CreateUriFromPwsLocationForSpecificFeature(dataFeatures, pwsIdentifier);
             JsonProvider jsonProvider = new JsonProvider();
             string jsonData = await jsonProvider.DownloadJsonStringAsync(pwsUri);
             return JsonConvert.DeserializeObject<T>(jsonData);

@@ -10,6 +10,7 @@ namespace WundergroundNetLib
     {
         astronomy,
         conditions,
-        forecast
+        forecast,
+        astroCondForecastCombined
     }
 }
