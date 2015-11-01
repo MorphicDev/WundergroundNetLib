@@ -156,7 +156,7 @@ namespace WundergroundNetLib
         public List<Forecastday2> forecastday { get; set; }
     }
 
-    public class Forecast
+    public class TextAndSimpleForecast
     {
         public TxtForecast txt_forecast { get; set; }
         public Simpleforecast simpleforecast { get; set; }

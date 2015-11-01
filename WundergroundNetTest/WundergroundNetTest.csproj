@@ -35,6 +35,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed" />
     <Reference Include="System" />
   </ItemGroup>
   <Choose>
@@ -54,6 +55,7 @@
   <ItemGroup>
     <Compile Include="DownloadJsonStringTest.cs" />
     <Compile Include="GetDataTest.cs" />
+    <Compile Include="JsonDeserializerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UriProviderTest.cs" />
   </ItemGroup>

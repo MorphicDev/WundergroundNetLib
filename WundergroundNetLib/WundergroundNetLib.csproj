@@ -51,7 +51,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataProvider.cs" />
-    <Compile Include="IWunData.cs" />
+    <Compile Include="JsonDeserializer.cs" />
+    <Compile Include="WeatherData.cs" />
+    <Compile Include="WeatherDataClasses\IWunData.cs" />
     <Compile Include="JsonProvider.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -59,10 +61,10 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WunConditions.cs" />
-    <Compile Include="WunForecast.cs" />
+    <Compile Include="WeatherDataClasses\WunConditions.cs" />
+    <Compile Include="WeatherDataClasses\WunForecast.cs" />
     <Compile Include="UriProvider.cs" />
-    <Compile Include="WunAstronomy.cs" />
+    <Compile Include="WeatherDataClasses\WunAstronomy.cs" />
     <Compile Include="WunDataFeatures.cs" />
   </ItemGroup>
   <ItemGroup>

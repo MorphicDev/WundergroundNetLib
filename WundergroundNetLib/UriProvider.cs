@@ -16,42 +16,60 @@ namespace WundergroundNetLib
     /// </summary>
     public class UriProvider
     {
-        /// <summary>
-        /// This the currently used Uri Provider. However the /pws/ between wunApiKey is redundant
-        /// this will need to be removed which will alter the wunderground objects, however it could be worth
-        /// reconsidering how we deserialise the JSON files, to map them to specific objects to suit out purpose
-        /// changing the way the data is provided
-        /// </summary>
-        /// <param name="dataFeatures"></param>
-        /// <param name="location"></param>
-        /// <returns></returns>
-        public Uri CreateUriFromPwsLocationForSpecificFeature(WunDataFeatures dataFeatures, string location)
-        {
-            string wunApiKey = Resources.WundergroundApiKey;
-            Uri baseUri = new Uri("http://api.wunderground.com/api/");
-            return new Uri(baseUri, string.Format($"{wunApiKey}/pws/{dataFeatures}/q/pws:{location}.json"));
-            // Complete uri will look something like: http://api.wunderground.com/api/YourApiKey/pws/conditions/q/pws:ISOUTHLA34.json
-        }
 
         /// <summary>
-        /// This is the most recent uri provider which retrieves astronomy, forecast and conditions in one single call
-        /// this reduces the number of api calls made to Wunderground, which in tern lowers your subsription cost.
-        /// Note that this uri has the unneeded /pws/ removed from the uri. 
+        /// Create URI for conditions/forecast/astronomy based on your latitude and longitude.
+        /// Ensure that you are providing latitude and longitude in the correct order as doubles.
         /// 
-        /// Classes to match this JSON file will need to be created. LINQ to JSON could be the technology of choice.
-        /// Also methods to call this method will need to be created, which pass in the coordinates as a single string.
-        /// If needed this method could be refactored to take two doubles (the largest number of digits for a longitude
-        /// value would be 9 plus the '-' sign
+        /// This uri provider retrieves astronomy, forecast and conditions in one single call
+        /// this reduces the number of api calls made to Wunderground, which lowers your subsription cost.
         /// </summary>
         /// <param name="dataFeatures"></param>
         /// <param name="coordinates"></param>
         /// <returns></returns>
-        public Uri CreateCombinedDataUriFromCoordinates(string coordinates)
+        public Uri CreateCombinedDataUriFromCoordinates(double latitude, double longitude)
         {
+            // There needs to be a check here that the doubles provided are within the correct range (+- 90 // +-180)
+            string geoLat = Convert.ToString(latitude);
+            string geoLong = Convert.ToString(longitude);
+            string coordinates = geoLat + "," + geoLong;
             string wunApiKey = Resources.WundergroundApiKey;
             Uri baseUri = new Uri("http://api.wunderground.com/api/");
             return new Uri(baseUri, string.Format($"{wunApiKey}/conditions/forecast/astronomy/q/{coordinates}.json"));
             // Complete uri will look something like: http://api.wunderground.com/api/YOURKEYHERE/conditions/forecast/astronomy/q/-43.000000,172.000000.json
+        }
+        /// <summary>
+        /// Create URI for conditions/forecast/astronomy based on your latitude and longitude.
+        /// Ensure that you are providing latitude and longitude in the correct order as strings.
+        /// </summary>
+        /// <param name="latitude"></param>
+        /// <param name="longitude"></param>
+        /// <returns></returns>
+        public Uri CreateCombinedDataUriFromCoordinates(string latitude, string longitude)
+        {
+            // There should be a check here to ensure the strings provided are numeric values.
+            // There needs to be a check to ensure the coordinates within the correct range.
+            string coordinates = latitude + "," + longitude;
+            string wunApiKey = Resources.WundergroundApiKey;
+            Uri baseUri = new Uri("http://api.wunderground.com/api/");
+            return new Uri(baseUri, string.Format($"{wunApiKey}/conditions/forecast/astronomy/q/{coordinates}.json"));
+            // Complete uri will look something like: http://api.wunderground.com/api/YOURKEYHERE/conditions/forecast/astronomy/q/-43.000000,172.000000.json
+        }
+
+        /// <summary>
+        /// Create URI for conditions/forecast/astronomy based on your latitude and longitude.
+        /// Ensure that you are providing latitude and longitude in the correct order as strings.
+        /// </summary>
+        /// <param name="latitude"></param>
+        /// <param name="longitude"></param>
+        /// <returns></returns>
+        public Uri CreateCombinedDataUriFromPwsStationID(string stationID)
+        {
+            // There could be a regex here to check that the stationID meets certain requirements
+            string wunApiKey = Resources.WundergroundApiKey;
+            Uri baseUri = new Uri("http://api.wunderground.com/api/");
+            return new Uri(baseUri, string.Format($"{wunApiKey}/conditions/forecast/astronomy/q/pws:{stationID}.json"));
+            // Complete uri will look something like: http://api.wunderground.com/api/YOURKEYHERE/conditions/forecast/astronomy/q/pws:ICANTERB275.json
         }
     }
 }

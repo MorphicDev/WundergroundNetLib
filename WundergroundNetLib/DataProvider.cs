@@ -4,91 +4,64 @@ using Newtonsoft.Json;
 
 namespace WundergroundNetLib
 {
-    public enum PwsGeographicLocation
-    {
-        // Town_Region_Country
-        Oban_StewartIsland_NZ,
-        Kaitaia_Northland_NZ
-    }
-
     public class DataProvider
     {
         /// <summary>
-        /// Generic method for getting the data features of your choosing as a synchronous operation.
+        /// Get the combined json file including conditions, forecast and astronomy data and deserialise into 
+        /// customised weather data classes using your string coordinates, executed as an asynchronous operation.
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="location"></param>
         /// <param name="dataFeatures"></param>
         /// <returns></returns>
-        public T GetData<T>(PwsGeographicLocation location, WunDataFeatures dataFeatures) where T : IWunData
+        public async Task<WeatherData> GetCombinedDataAsync(string latitude, string longitude)
         {
             UriProvider uriProvider = new UriProvider();
-            string pwsIdentifier = GetPwsIdentifier(location);
-            Uri pwsUri = uriProvider.CreateUriFromPwsLocationForSpecificFeature(dataFeatures, pwsIdentifier);
-            JsonProvider jsonProvider = new JsonProvider();
-            string jsonData = jsonProvider.DownloadJsonString(pwsUri);
-            return JsonConvert.DeserializeObject<T>(jsonData);
-        }
-
-        /// <summary>
-        /// Generic method for getting the data features of your choosing as an asynchronous operation.
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="location"></param>
-        /// <param name="dataFeatures"></param>
-        /// <returns></returns>
-        public async Task<T> GetDataAsync<T>(PwsGeographicLocation location, WunDataFeatures dataFeatures) where T : IWunData
-        {
-            UriProvider uriProvider = new UriProvider();
-            string pwsIdentifier = GetPwsIdentifier(location);
-            Uri pwsUri = uriProvider.CreateUriFromPwsLocationForSpecificFeature(dataFeatures, pwsIdentifier);
-            JsonProvider jsonProvider = new JsonProvider();
-            string jsonData = await jsonProvider.DownloadJsonStringAsync(pwsUri);
-            return await Task.Factory.StartNew(() => JsonConvert.DeserializeObject<T>(jsonData));
+            Uri pwsUri = uriProvider.CreateCombinedDataUriFromCoordinates(latitude, longitude);
+            return await CombinedWeatherDataAsync(pwsUri);
         }
 
         /// <summary>
         /// Get the combined json file including conditions, forecast and astronomy data and deserialise into 
-        /// customised weather data classes using your coordinates, executed as an asynchronous operation.
+        /// customised weather data classes using your double coordinates, executed as an asynchronous operation.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="location"></param>
-        /// <param name="dataFeatures"></param>
+        /// <param name="latitude"></param>
+        /// <param name="longitude"></param>
         /// <returns></returns>
-        public async Task<T> GetCombinedDataAsync<T>(string coordinates) where T : IWunData
+        public async Task<WeatherData> GetCombinedDataAsync(double latitude, double longitude)
         {
-            // Set Uri
             UriProvider uriProvider = new UriProvider();
-            Uri pwsUri = uriProvider.CreateCombinedDataUriFromCoordinates(coordinates);
+            Uri pwsUri = uriProvider.CreateCombinedDataUriFromCoordinates(latitude, longitude);
+            return await CombinedWeatherDataAsync(pwsUri);
+        }
+
+        /// <summary>
+        /// Get the combined json file including conditions, forecast and astronomy data and deserialise into 
+        /// customised weather data classes using a specific pws station id ("ICANTERB275"), executed as an asynchronous operation.
+        /// </summary>
+        /// <param name="stationID"></param>
+        /// <returns></returns>
+        public async Task<WeatherData> GetCombinedDataAsync(string stationID)
+        {
+            UriProvider uriProvider = new UriProvider();
+            Uri pwsUri = uriProvider.CreateCombinedDataUriFromPwsStationID(stationID);
+            return await CombinedWeatherDataAsync(pwsUri);
+        }
+
+        /// <summary>
+        /// Receives a uri and uses this to download a json file and deserialise it into the custom WeatherData object as an async operation.
+        /// </summary>
+        /// <param name="pwsUri"></param>
+        /// <returns></returns>
+        private async Task<WeatherData> CombinedWeatherDataAsync(Uri pwsUri)
+        {
             // Download Json data
             JsonProvider jsonProvider = new JsonProvider();
             string jsonData = await jsonProvider.DownloadJsonStringAsync(pwsUri);
+
             // Deserialise Json file into custom object
-
-            // Create Custom Object - Look through JSON file and work out what data we need
-            // http://api.wunderground.com/api/046205dccf61046c/conditions/forecast/astronomy/q/-43.537358,172.640151.json
-            // http://jsonviewer.stack.hu/#http://api.wunderground.com/api/046205dccf61046c/conditions/forecast/astronomy/q/-43.537358,172.640151.json
-            // http://jsonviewer.stack.hu/#http://api.wunderground.com/api/046205dccf61046c/conditions/forecast/astronomy/q/CA/San_Francisco.json
-            // Create method that uses LINQ to Json to deserialise json
-            // http://www.newtonsoft.com/json/help/html/QueryingLINQtoJSON.htm
-            // http://www.newtonsoft.com/json/help/html/SerializingJSONFragments.htm
-
-            return JsonConvert.DeserializeObject<T>(jsonData);
-        }
-
-        public string GetPwsIdentifier(PwsGeographicLocation location)
-        {
-            string pwsIdentifier = "";
-            switch (location)
-            {
-                case PwsGeographicLocation.Oban_StewartIsland_NZ:
-                    pwsIdentifier = "ISOUTHLA34";
-                    break;
-                case PwsGeographicLocation.Kaitaia_Northland_NZ:
-                    pwsIdentifier = "INORTHLA43";
-                    break;
-            }
-            return pwsIdentifier;
+            JsonDeserializer jsonDeserialize = new JsonDeserializer();
+            return await jsonDeserialize.JsonToWeatherDataAsync(jsonData);
         }
     }
 }

@@ -48,7 +48,7 @@ namespace WundergroundNetLib
         public string elevation { get; set; }
     }
 
-    public class ObservationLocation
+    public class ObservationLocation_old
     {
         public string full { get; set; }
         public string city { get; set; }
@@ -68,7 +68,7 @@ namespace WundergroundNetLib
     {
         public Image image { get; set; }
         public DisplayLocation display_location { get; set; }
-        public ObservationLocation observation_location { get; set; }
+        public ObservationLocation_old observation_location { get; set; }
         public Estimated estimated { get; set; }
         public string station_id { get; set; }
         public string observation_time { get; set; }
