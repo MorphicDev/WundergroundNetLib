@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WundergroundNetLib
 {
-    public class WeatherData : IWunData
+    public class WeatherData
     {
         public ObservationLocation observationLocation { get; set; }
         public CurrentConditions currentConditions { get; set; }
