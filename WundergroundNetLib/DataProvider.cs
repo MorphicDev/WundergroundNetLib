@@ -4,7 +4,7 @@ using Newtonsoft.Json;
 
 namespace WundergroundNetLib
 {
-    public class DataProvider
+    public class WundergroundDataProvider
     {
         /// <summary>
         /// Get the combined json file including conditions, forecast and astronomy data and deserialise into 
@@ -14,7 +14,7 @@ namespace WundergroundNetLib
         /// <param name="location"></param>
         /// <param name="dataFeatures"></param>
         /// <returns></returns>
-        public async Task<WeatherData> GetCombinedDataAsync(string latitude, string longitude)
+        public async Task<WundergroundData> GetWundergroundWeatherDataAsync(string latitude, string longitude)
         {
             UriProvider uriProvider = new UriProvider();
             Uri pwsUri = uriProvider.CreateCombinedDataUriFromCoordinates(latitude, longitude);
@@ -28,7 +28,7 @@ namespace WundergroundNetLib
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
         /// <returns></returns>
-        public async Task<WeatherData> GetCombinedDataAsync(double latitude, double longitude)
+        public async Task<WundergroundData> GetWundergroundWeatherDataAsync(double latitude, double longitude)
         {
             UriProvider uriProvider = new UriProvider();
             Uri pwsUri = uriProvider.CreateCombinedDataUriFromCoordinates(latitude, longitude);
@@ -41,7 +41,7 @@ namespace WundergroundNetLib
         /// </summary>
         /// <param name="stationID"></param>
         /// <returns></returns>
-        public async Task<WeatherData> GetCombinedDataAsync(string stationID)
+        public async Task<WundergroundData> GetWundergroundWeatherDataAsync(string stationID)
         {
             UriProvider uriProvider = new UriProvider();
             Uri pwsUri = uriProvider.CreateCombinedDataUriFromPwsStationID(stationID);
@@ -49,11 +49,11 @@ namespace WundergroundNetLib
         }
 
         /// <summary>
-        /// Receives a uri and uses this to download a json file and deserialise it into the custom WeatherData object as an async operation.
+        /// Receives a uri and uses this to download a json file and deserialise it into the custom WundergroundData object as an async operation.
         /// </summary>
         /// <param name="pwsUri"></param>
         /// <returns></returns>
-        private async Task<WeatherData> CombinedWeatherDataAsync(Uri pwsUri)
+        private async Task<WundergroundData> CombinedWeatherDataAsync(Uri pwsUri)
         {
             // Download Json data
             JsonProvider jsonProvider = new JsonProvider();

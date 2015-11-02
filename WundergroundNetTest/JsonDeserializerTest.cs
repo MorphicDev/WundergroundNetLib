@@ -12,7 +12,7 @@ namespace WundergroundNetTest
         {
             // Arrange
             var uriProvider = new UriProvider();
-            Uri actualUri = uriProvider.CreateCombinedDataUriFromCoordinates("-43.506923,172.731346");
+            Uri actualUri = uriProvider.CreateCombinedDataUriFromCoordinates("-43.506923","172.731346");
             var jsonProvider = new JsonProvider();
             string jsonData = jsonProvider.DownloadJsonString(actualUri);
             var jsonDeserializer = new JsonDeserializer();

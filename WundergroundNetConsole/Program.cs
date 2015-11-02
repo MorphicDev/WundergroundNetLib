@@ -11,10 +11,10 @@ namespace WundergroundNetConsole
     {
         static void Main(string[] args)
         {
-            DataProvider dataProvider = new DataProvider();
-            //var WeatherData = dataProvider.GetCombinedDataAsync("-43.506923", "172.731346");
-            //var WeatherData = dataProvider.GetCombinedDataAsync("ICANTERB275");
-            var WeatherData = dataProvider.GetCombinedDataAsync(-43.506923, 172.731346);
+            WundergroundDataProvider dataProvider = new WundergroundDataProvider();
+            //var WundergroundData = dataProvider.GetWundergroundWeatherDataAsync("-43.506923", "172.731346");
+            //var WundergroundData = dataProvider.GetWundergroundWeatherDataAsync("ICANTERB275");
+            var WeatherData = dataProvider.GetWundergroundWeatherDataAsync(-43.506923, 172.731346);
 
             Console.WriteLine();
             Console.WriteLine("--------------------------------------");

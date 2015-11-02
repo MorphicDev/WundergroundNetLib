@@ -13,15 +13,15 @@ namespace WundergroundNetLib
     public class JsonDeserializer
     {
         /// <summary>
-        /// Convert json file from string into deserialized WeatherData object as an asynchronous operation.
+        /// Convert json file from string into deserialized WundergroundData object as an asynchronous operation.
         /// </summary>
         /// <param name="jsonData"></param>
         /// <returns></returns>
-        public async Task<WeatherData> JsonToWeatherDataAsync(string jsonData)
+        public async Task<WundergroundData> JsonToWeatherDataAsync(string jsonData)
         {
             JObject jObject = await ParseJsonFile(jsonData);
             // Deserialize jObject into Weather Data classes
-            WeatherData weatherData = await DeserializeJObjIntoWeatherData(jObject);
+            WundergroundData weatherData = await DeserializeJObjIntoWeatherData(jObject);
             return weatherData;
         }
 
@@ -39,17 +39,17 @@ namespace WundergroundNetLib
         }
 
         /// <summary>
-        /// Receives a JObject and deserializes it into a WeatherData object as asynchronous operation.
+        /// Receives a JObject and deserializes it into a WundergroundData object as asynchronous operation.
         /// 
         /// fourDayForecast needs refactoring to reduce code duplication.
         /// </summary>
         /// <param name="jObject"></param>
         /// <returns></returns>
-        internal async Task<WeatherData> DeserializeJObjIntoWeatherData(JObject jObject)
+        internal async Task<WundergroundData> DeserializeJObjIntoWeatherData(JObject jObject)
         {
-            WeatherData weatherData = await Task.Run(() =>
+            WundergroundData weatherData = await Task.Run(() =>
             {
-                weatherData = new WeatherData()
+                weatherData = new WundergroundData()
                 {
                     observationLocation = new ObservationLocation()
                     {

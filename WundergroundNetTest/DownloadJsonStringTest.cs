@@ -15,7 +15,7 @@ namespace WundergroundNetTest
             // Arrange
             bool actualResultValue = false;
             UriProvider uriProvider = new UriProvider();
-            Uri testUri = uriProvider.CreateUriFromPwsLocationForSpecificFeature(WunDataFeatures.astronomy, "INORTHLA43");
+            Uri testUri = uriProvider.CreateCombinedDataUriFromPwsStationID("INORTHLA43");
             JsonProvider jsonProvider = new JsonProvider();
 
             //Act
@@ -39,7 +39,7 @@ namespace WundergroundNetTest
             // Arrange
             bool actualResultValue = false;
             UriProvider uriProvider = new UriProvider();
-            Uri testUri = uriProvider.CreateUriFromPwsLocationForSpecificFeature(WunDataFeatures.astronomy, "INORTHLA43");
+            Uri testUri = uriProvider.CreateCombinedDataUriFromPwsStationID("INORTHLA43");
             JsonProvider jsonProvider = new JsonProvider();
 
             //Act
