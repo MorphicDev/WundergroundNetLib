@@ -8,6 +8,23 @@ namespace WundergroundNetLib
 {
     public class WundergroundDataProvider : IWundergroundDataProvider
     {
+        // create a singleton
+        private static readonly WundergroundDataProvider _provider = new WundergroundDataProvider();
+
+        static WundergroundDataProvider() { }
+        private WundergroundDataProvider() { }
+
+        /// <summary>
+        /// Static thread safe singleton class instantes a WundergroundDataProvider where none exist at the point of retrieval ensuring only one instance is created within scope, when required.
+        /// </summary>
+        public static WundergroundDataProvider DefaultProvider
+        {
+            get
+            {
+                return _provider;
+            }
+        }
+
         /// <summary>
         /// Get the combined json file including conditions, forecast and astronomy data and deserialise into 
         /// customised weather data classes using your string coordinates, executed as an asynchronous operation.

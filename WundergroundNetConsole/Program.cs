@@ -13,7 +13,8 @@ namespace WundergroundNetConsole
     {
         static void Main(string[] args)
         {
-            IWundergroundDataProvider dataProvider = new WundergroundDataProvider();
+            IWundergroundDataProvider dataProvider = WundergroundDataProvider.DefaultProvider; // ensure only one instance is created using the WundergroundDataProvider singleton
+
             //var WundergroundData = dataProvider.GetWundergroundWeatherDataAsync("-43.506923", "172.731346");
             //var WundergroundData = dataProvider.GetWundergroundWeatherDataAsync("ICANTERB275");
             var WeatherData = dataProvider.GetWundergroundWeatherDataAsync(-43.506923, 172.731346);
