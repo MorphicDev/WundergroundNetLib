@@ -10,18 +10,18 @@ using System.Diagnostics;
 
 namespace WundergroundNetLib
 {
-    public class JsonDeserializer
+    public class JsonDeserializer : IJsonDeserializer
     {
         /// <summary>
         /// Convert json file from string into deserialized WundergroundData object as an asynchronous operation.
         /// </summary>
         /// <param name="jsonData"></param>
         /// <returns></returns>
-        public async Task<WundergroundData> JsonToWeatherDataAsync(string jsonData)
+        public async Task<IWundergroundData> JsonToWeatherDataAsync(string jsonData)
         {
             JObject jObject = await ParseJsonFile(jsonData);
             // Deserialize jObject into Weather Data classes
-            WundergroundData weatherData = await DeserializeJObjIntoWeatherData(jObject);
+            IWundergroundData weatherData = await DeserializeJObjIntoWeatherData(jObject);
             return weatherData;
         }
 
@@ -45,9 +45,9 @@ namespace WundergroundNetLib
         /// </summary>
         /// <param name="jObject"></param>
         /// <returns></returns>
-        internal async Task<WundergroundData> DeserializeJObjIntoWeatherData(JObject jObject)
+        internal async Task<IWundergroundData> DeserializeJObjIntoWeatherData(JObject jObject)
         {
-            WundergroundData weatherData = await Task.Run(() =>
+            IWundergroundData weatherData = await Task.Run(() =>
             {
                 weatherData = new WundergroundData()
                 {
@@ -83,7 +83,7 @@ namespace WundergroundNetLib
                         Sunrise = string.Format("{0}:{1}", (string)jObject["sun_phase"]["sunrise"]["hour"], (string)jObject["sun_phase"]["sunrise"]["minute"]),  // sun_phase / sunrise / hour : "6" / minute : "18"
                         Sunset = string.Format("{0}:{1}", (string)jObject["sun_phase"]["sunset"]["hour"], (string)jObject["sun_phase"]["sunset"]["minute"]),
                     },
-                    fourDayForecast = new List<Forecast>()
+                    fourDayForecast = new List<IForecast>()
                     {
                         new Forecast()
                         {

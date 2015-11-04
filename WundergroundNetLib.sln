@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WundergroundNetConsole", "W
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WundergroundNetTest", "WundergroundNetTest\WundergroundNetTest.csproj", "{0DAD6A7A-EEDC-420C-B6E4-C4F7C6AF8C8C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WundergroundNetLib.Interfaces", "WundergroundNetLib.Interfaces\WundergroundNetLib.Interfaces.csproj", "{9DF9530D-416D-42E6-BF51-FC6715263DF0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{0DAD6A7A-EEDC-420C-B6E4-C4F7C6AF8C8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0DAD6A7A-EEDC-420C-B6E4-C4F7C6AF8C8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0DAD6A7A-EEDC-420C-B6E4-C4F7C6AF8C8C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9DF9530D-416D-42E6-BF51-FC6715263DF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9DF9530D-416D-42E6-BF51-FC6715263DF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9DF9530D-416D-42E6-BF51-FC6715263DF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9DF9530D-416D-42E6-BF51-FC6715263DF0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

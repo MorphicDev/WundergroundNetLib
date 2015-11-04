@@ -4,16 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace WundergroundNetLib
 {
-    public class WundergroundData
+    public class WundergroundData : IWundergroundData
     {
-        public ObservationLocation observationLocation { get; set; }
-        public CurrentConditions currentConditions { get; set; }
-        public List<Forecast> fourDayForecast = new List<Forecast>();
+        public IObservationLocation observationLocation { get; set; }
+        public ICurrentConditions currentConditions { get; set; }
+        public List<IForecast> fourDayForecast { get; set; }
     }
 
-    public class ObservationLocation
+    public class ObservationLocation : IObservationLocation
     {
         public string City { get; set; } // city : "Christchurch" / display_location
         public string Country { get; set; } // country_iso3166 : "NZ" / observation_location
@@ -24,7 +25,7 @@ namespace WundergroundNetLib
         public int WmoNumber { get; set; } // wmo : "93780" / display_location
     }
 
-    public class CurrentConditions
+    public class CurrentConditions : ICurrentConditions
     {
         public DateTime ObservationTime { get; set; } // observation_time_rfc822 : "Fri, 30 Oct 2015 07:56:47 +1300"
         public string CurrentDescription { get; set; } // weather : "Rain"
@@ -46,7 +47,7 @@ namespace WundergroundNetLib
         public string Sunset { get; set; } // sun_phase / sunset etc
     }
 
-    public class Forecast
+    public class Forecast : IForecast
     {
         public string Day { get; set; }  // simpleforecast / forecastday / date / weekday_short
         public DateTime Date { get; set; } // simpleforecast / forecastday / date / year, month, day

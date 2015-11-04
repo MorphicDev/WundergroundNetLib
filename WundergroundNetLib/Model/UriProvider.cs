@@ -14,7 +14,7 @@ namespace WundergroundNetLib
     /// Add that key to a file called WundergroundApiKey.txt inside the folder called keys.
     /// Resources.WundergroundApiKey references the internal resource for that key
     /// </summary>
-    public class UriProvider
+    public class UriProvider : IUriProvider
     {
 
         /// <summary>

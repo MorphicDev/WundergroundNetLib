@@ -6,7 +6,7 @@ using System.Threading;
 
 namespace WundergroundNetLib
 {
-    public class JsonProvider
+    public class JsonProvider : IJsonProvider
     {
         /// <summary>
         /// Download json string using the legacy WebClient class as a synchronous operation
