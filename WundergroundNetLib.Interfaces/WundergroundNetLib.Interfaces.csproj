@@ -40,12 +40,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Json\IJsonDeserializer.cs" />
+    <Compile Include="Json\IJsonProvider.cs" />
+    <Compile Include="Model\ICurrentConditions.cs" />
+    <Compile Include="Model\IForecast.cs" />
+    <Compile Include="Model\IObservationLocation.cs" />
+    <Compile Include="Model\IUriProvider.cs" />
+    <Compile Include="Model\IWundergroundData.cs" />
+    <Compile Include="Model\IWundergroundDataProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Json\" />
-    <Folder Include="Model\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

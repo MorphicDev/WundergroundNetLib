@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
+using WundergroundNetLib.Interfaces;
 
 namespace WundergroundNetLib
 {

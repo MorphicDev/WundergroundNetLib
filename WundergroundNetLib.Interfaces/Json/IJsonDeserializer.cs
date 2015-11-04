@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace WundergroundNetLib
+namespace WundergroundNetLib.Interfaces
 {
     public interface IJsonDeserializer
     {

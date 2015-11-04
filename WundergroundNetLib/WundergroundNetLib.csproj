@@ -50,14 +50,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IUriProvider.cs" />
-    <Compile Include="IWundergroundData.cs" />
-    <Compile Include="IWundergroundDataProvider.cs" />
-    <Compile Include="ICurrentConditions.cs" />
-    <Compile Include="IForecast.cs" />
-    <Compile Include="IObservationLocation.cs" />
-    <Compile Include="IJsonDeserializer.cs" />
-    <Compile Include="IJsonProvider.cs" />
     <Compile Include="Model\WundergroundDataProvider.cs" />
     <Compile Include="Json\JsonDeserializer.cs" />
     <Compile Include="Model\WundergroundData.cs" />
@@ -91,7 +83,6 @@
       <Name>WundergroundNetLib.Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

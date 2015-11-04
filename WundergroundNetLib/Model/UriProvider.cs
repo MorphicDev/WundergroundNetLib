@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using System.IO;
 using WundergroundNetLib.Properties;
 
+using WundergroundNetLib.Interfaces;
+
 namespace WundergroundNetLib
 {
     /// <summary>

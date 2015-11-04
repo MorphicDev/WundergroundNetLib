@@ -50,6 +50,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\WundergroundNetLib.Interfaces\WundergroundNetLib.Interfaces.csproj">
+      <Project>{9df9530d-416d-42e6-bf51-fc6715263df0}</Project>
+      <Name>WundergroundNetLib.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WundergroundNetLib\WundergroundNetLib.csproj">
       <Project>{9a1b633b-a546-4024-8380-e64a1d271168}</Project>
       <Name>WundergroundNetLib</Name>

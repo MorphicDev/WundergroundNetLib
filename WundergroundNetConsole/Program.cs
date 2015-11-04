@@ -5,13 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 using WundergroundNetLib;
 
+using WundergroundNetLib.Interfaces;
+
 namespace WundergroundNetConsole
 {
     class Program
     {
         static void Main(string[] args)
         {
-            WundergroundDataProvider dataProvider = new WundergroundDataProvider();
+            IWundergroundDataProvider dataProvider = new WundergroundDataProvider();
             //var WundergroundData = dataProvider.GetWundergroundWeatherDataAsync("-43.506923", "172.731346");
             //var WundergroundData = dataProvider.GetWundergroundWeatherDataAsync("ICANTERB275");
             var WeatherData = dataProvider.GetWundergroundWeatherDataAsync(-43.506923, 172.731346);

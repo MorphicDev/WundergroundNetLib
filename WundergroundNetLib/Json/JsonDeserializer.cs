@@ -8,6 +8,8 @@ using Newtonsoft.Json;
 using System.IO;
 using System.Diagnostics;
 
+using WundergroundNetLib.Interfaces;
+
 namespace WundergroundNetLib
 {
     public class JsonDeserializer : IJsonDeserializer

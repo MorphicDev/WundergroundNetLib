@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace WundergroundNetLib
+namespace WundergroundNetLib.Interfaces
 {
     public interface ICurrentConditions
     {

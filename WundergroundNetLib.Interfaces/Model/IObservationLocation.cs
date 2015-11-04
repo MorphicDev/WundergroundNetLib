@@ -1,4 +1,4 @@
-﻿namespace WundergroundNetLib
+﻿namespace WundergroundNetLib.Interfaces
 {
     public interface IObservationLocation
     {

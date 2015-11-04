@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace WundergroundNetLib
+namespace WundergroundNetLib.Interfaces
 {
     public interface IWundergroundData
     {
