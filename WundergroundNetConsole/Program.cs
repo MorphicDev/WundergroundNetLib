@@ -19,18 +19,22 @@ namespace WundergroundNetConsole
             //var WundergroundData = dataProvider.GetWundergroundWeatherDataAsync("ICANTERB275");
             var WeatherData = dataProvider.GetWundergroundWeatherDataAsync(-43.506923, 172.731346);
 
-            Console.WriteLine();
-            Console.WriteLine("--------------------------------------");
-            Console.WriteLine("Observation Location Details");
-            Console.WriteLine();
-
-            Console.WriteLine("City \t\t\t{0}", WeatherData.Result.observationLocation.City);
-            Console.WriteLine("Country \t\t{0}", WeatherData.Result.observationLocation.Country);
-            Console.WriteLine("StationLatitude \t{0}", WeatherData.Result.observationLocation.StationLatitude);
-            Console.WriteLine("StationLongitude \t{0}", WeatherData.Result.observationLocation.StationLongitude);
-            Console.WriteLine("StationElevation \t{0}", WeatherData.Result.observationLocation.StationElevation);
-            Console.WriteLine("StationID \t\t{0}", WeatherData.Result.observationLocation.StationID);
-            Console.WriteLine("WmoNumber \t\t{0}", WeatherData.Result.observationLocation.WmoNumber);
+            Console.WriteLine(string.Format("--------------------------------------\r\n" +
+                                            "Observation Location Details\r\n" +
+                                            "City \t\t\t{0}\r\n" +
+                                            "Country \t\t{1}\r\n" +
+                                            "StationLatitude \t{2}\r\n" +
+                                            "StationLongitude \t{3}\r\n" +
+                                            "StationElevation \t{4}\r\n" +
+                                            "StationID \t\t{5}\r\n" +
+                                            "WmoNumber \t\t{6}\r\n",
+                                            WeatherData.Result.observationLocation.City,
+                                            WeatherData.Result.observationLocation.Country,
+                                            WeatherData.Result.observationLocation.StationLatitude,
+                                            WeatherData.Result.observationLocation.StationLongitude,
+                                            WeatherData.Result.observationLocation.StationElevation,
+                                            WeatherData.Result.observationLocation.StationID,
+                                            WeatherData.Result.observationLocation.WmoNumber));
 
             Console.WriteLine();
             Console.WriteLine("--------------------------------------");
