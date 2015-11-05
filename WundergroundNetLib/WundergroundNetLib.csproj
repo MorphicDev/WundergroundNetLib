@@ -52,7 +52,7 @@
   <ItemGroup>
     <Compile Include="Model\WundergroundDataProvider.cs" />
     <Compile Include="Model\JsonDeserializer.cs" />
-    <Compile Include="Data\WundergroundData.cs" />
+    <Compile Include="Data\WundergroundWeatherData.cs" />
     <Compile Include="Model\JsonProvider.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
