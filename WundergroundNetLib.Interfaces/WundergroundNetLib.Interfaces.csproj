@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\ICurrentTemp.cs" />
+    <Compile Include="Data\IForecastTemp.cs" />
     <Compile Include="Data\IRelativeHumidity.cs" />
     <Compile Include="Data\IWind.cs" />
     <Compile Include="Model\IWundergroundDataProvider.cs" />
