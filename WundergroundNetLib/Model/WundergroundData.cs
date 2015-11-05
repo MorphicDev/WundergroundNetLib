@@ -48,7 +48,7 @@ namespace WundergroundNetLib
         public string Sunset { get; set; } // sun_phase / sunset etc
     }
 
-    public class Forecast : IForecast
+    public class Forecast
     {
         public string Day { get; set; }  // simpleforecast / forecastday / date / weekday_short
         public DateTime Date { get; set; } // simpleforecast / forecastday / date / year, month, day
