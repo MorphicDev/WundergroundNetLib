@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace WundergroundNetLib.Interfaces.Data
 {
-    interface ITemperature
+    public interface ICurrentTemp
     {
+        double TempCelsius { get; set; }
     }
 }

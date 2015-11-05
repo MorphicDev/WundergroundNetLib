@@ -99,6 +99,7 @@ namespace WundergroundNetLib.Model
                             WindAvgKph = (double)jObject["forecast"]["simpleforecast"]["forecastday"][0]["avewind"]["kph"],  // simpleforecast / forecastday / avewind / kph : 32
                             WindGustKph = (double)jObject["forecast"]["simpleforecast"]["forecastday"][0]["maxwind"]["kph"],  // simpleforecast / forecastday / maxwind / kph : 32
                             WindDirection = (string)jObject["forecast"]["simpleforecast"]["forecastday"][0]["avewind"]["dir"], // simpleforecast / forecastday / avewind / dir : "S"
+                            WindDegrees = (int)jObject["forecast"]["simpleforecast"]["forecastday"][0]["avewind"]["degrees"],  // wind_degrees : 247
                             WeatherIcon = (string)jObject["forecast"]["simpleforecast"]["forecastday"][0]["icon"], // simpleforecast / forecastday / icon : "chancerain"
                             WeatherIconUrl = (string)jObject["forecast"]["simpleforecast"]["forecastday"][0]["icon_url"],
                         },
@@ -115,6 +116,7 @@ namespace WundergroundNetLib.Model
                             WindAvgKph = (double)jObject["forecast"]["simpleforecast"]["forecastday"][1]["avewind"]["kph"],  // simpleforecast / forecastday / avewind / kph : 33
                             WindGustKph = (double)jObject["forecast"]["simpleforecast"]["forecastday"][1]["maxwind"]["kph"],  // simpleforecast / forecastday / maxwind / kph : 33
                             WindDirection = (string)jObject["forecast"]["simpleforecast"]["forecastday"][1]["avewind"]["dir"], // simpleforecast / forecastday / avewind / dir : "S"
+                            WindDegrees = (int)jObject["forecast"]["simpleforecast"]["forecastday"][1]["avewind"]["degrees"],  // wind_degrees : 247
                             WeatherIcon = (string)jObject["forecast"]["simpleforecast"]["forecastday"][1]["icon"], // simpleforecast / forecastday / icon : "chancerain"
                             WeatherIconUrl = (string)jObject["forecast"]["simpleforecast"]["forecastday"][1]["icon_url"],
                         },
@@ -131,6 +133,7 @@ namespace WundergroundNetLib.Model
                             WindAvgKph = (double)jObject["forecast"]["simpleforecast"]["forecastday"][2]["avewind"]["kph"],  // simpleforecast / forecastday / avewind / kph : 33
                             WindGustKph = (double)jObject["forecast"]["simpleforecast"]["forecastday"][2]["maxwind"]["kph"],  // simpleforecast / forecastday / maxwind / kph : 33
                             WindDirection = (string)jObject["forecast"]["simpleforecast"]["forecastday"][2]["avewind"]["dir"], // simpleforecast / forecastday / avewind / dir : "S"
+                            WindDegrees = (int)jObject["forecast"]["simpleforecast"]["forecastday"][2]["avewind"]["degrees"],  // wind_degrees : 247
                             WeatherIcon = (string)jObject["forecast"]["simpleforecast"]["forecastday"][2]["icon"], // simpleforecast / forecastday / icon : "chancerain"
                             WeatherIconUrl = (string)jObject["forecast"]["simpleforecast"]["forecastday"][2]["icon_url"],
                         },
@@ -147,6 +150,7 @@ namespace WundergroundNetLib.Model
                             WindAvgKph = (double)jObject["forecast"]["simpleforecast"]["forecastday"][3]["avewind"]["kph"],  // simpleforecast / forecastday / avewind / kph : 33
                             WindGustKph = (double)jObject["forecast"]["simpleforecast"]["forecastday"][3]["maxwind"]["kph"],  // simpleforecast / forecastday / maxwind / kph : 33
                             WindDirection = (string)jObject["forecast"]["simpleforecast"]["forecastday"][3]["avewind"]["dir"], // simpleforecast / forecastday / avewind / dir : "S"
+                            WindDegrees = (int)jObject["forecast"]["simpleforecast"]["forecastday"][3]["avewind"]["degrees"],  // wind_degrees : 247
                             WeatherIcon = (string)jObject["forecast"]["simpleforecast"]["forecastday"][3]["icon"], // simpleforecast / forecastday / icon : "chancerain"
                             WeatherIconUrl = (string)jObject["forecast"]["simpleforecast"]["forecastday"][3]["icon_url"],
                         },

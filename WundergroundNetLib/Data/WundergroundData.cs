@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
-using WundergroundNetLib.Interfaces;
+using WundergroundNetLib.Interfaces.Data;
 
 namespace WundergroundNetLib.Data
 {
@@ -26,7 +25,7 @@ namespace WundergroundNetLib.Data
         public int WmoNumber { get; set; } // wmo : "93780" / display_location
     }
 
-    public class CurrentConditions
+    public class CurrentConditions : ICurrentTemp, IRelativeHumidity
     {
         public DateTime ObservationTime { get; set; } // observation_time_rfc822 : "Fri, 30 Oct 2015 07:56:47 +1300"
         public string CurrentDescription { get; set; } // weather : "Rain"
@@ -48,7 +47,7 @@ namespace WundergroundNetLib.Data
         public string Sunset { get; set; } // sun_phase / sunset etc
     }
 
-    public class Forecast
+    public class Forecast : IRelativeHumidity
     {
         public string Day { get; set; }  // simpleforecast / forecastday / date / weekday_short
         public DateTime Date { get; set; } // simpleforecast / forecastday / date / year, month, day
@@ -61,6 +60,7 @@ namespace WundergroundNetLib.Data
         public double WindAvgKph { get; set; } // simpleforecast / forecastday / avewind / kph : 32
         public double WindGustKph { get; set; } // simpleforecast / forecastday / maxwind / kph : 32
         public string WindDirection { get; set; } // simpleforecast / forecastday / avewind / dir : "S"
+        public int WindDegrees { get; set; } // wind_degrees : 247
         public string WeatherIcon { get; set; } // simpleforecast / forecastday / icon : "chancerain"
         public string WeatherIconUrl { get; set; } // simpleforecast / forecastday / icon_url : "http://icons.wxug.com/i/c/k/chancerain.gif"
     }
