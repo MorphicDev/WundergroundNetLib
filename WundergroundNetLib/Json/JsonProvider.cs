@@ -8,7 +8,7 @@ using WundergroundNetLib.Interfaces;
 
 namespace WundergroundNetLib
 {
-    public class JsonProvider : IJsonProvider
+    public class JsonProvider
     {
         /// <summary>
         /// Download json string using the legacy WebClient class as a synchronous operation

@@ -8,14 +8,15 @@ namespace WundergroundNetLib
 {
     public class WundergroundDataProvider : IWundergroundDataProvider
     {
-        // create a singleton
+        // Create a singleton
         private static readonly WundergroundDataProvider _provider = new WundergroundDataProvider();
 
         static WundergroundDataProvider() { }
         private WundergroundDataProvider() { }
 
         /// <summary>
-        /// Static thread safe singleton class instantes a WundergroundDataProvider where none exist at the point of retrieval ensuring only one instance is created within scope, when required.
+        /// Static thread safe singleton class instantes a WundergroundDataProvider where none exist at the point 
+        /// of retrieval ensuring only one instance is created within scope, when required.
         /// </summary>
         public static WundergroundDataProvider DefaultProvider
         {
@@ -35,7 +36,7 @@ namespace WundergroundNetLib
         /// <returns></returns>
         public async Task<IWundergroundData> GetWundergroundWeatherDataAsync(string latitude, string longitude)
         {
-            IUriProvider uriProvider = new UriProvider();
+            UriProvider uriProvider = new UriProvider();
             Uri pwsUri = uriProvider.CreateCombinedDataUriFromCoordinates(latitude, longitude);
             return await CombinedWeatherDataAsync(pwsUri);
         }
@@ -49,7 +50,7 @@ namespace WundergroundNetLib
         /// <returns></returns>
         public async Task<IWundergroundData> GetWundergroundWeatherDataAsync(double latitude, double longitude)
         {
-            IUriProvider uriProvider = new UriProvider();
+            UriProvider uriProvider = new UriProvider();
             Uri pwsUri = uriProvider.CreateCombinedDataUriFromCoordinates(latitude, longitude);
             return await CombinedWeatherDataAsync(pwsUri);
         }
@@ -62,7 +63,7 @@ namespace WundergroundNetLib
         /// <returns></returns>
         public async Task<IWundergroundData> GetWundergroundWeatherDataAsync(string stationID)
         {
-            IUriProvider uriProvider = new UriProvider();
+            UriProvider uriProvider = new UriProvider();
             Uri pwsUri = uriProvider.CreateCombinedDataUriFromPwsStationID(stationID);
             return await CombinedWeatherDataAsync(pwsUri);
         }

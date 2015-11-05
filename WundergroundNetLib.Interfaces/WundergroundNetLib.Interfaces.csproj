@@ -40,13 +40,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Json\IJsonDeserializer.cs" />
-    <Compile Include="Json\IJsonProvider.cs" />
-    <Compile Include="Model\ICurrentConditions.cs" />
-    <Compile Include="Model\IForecast.cs" />
-    <Compile Include="Model\IObservationLocation.cs" />
-    <Compile Include="Model\IUriProvider.cs" />
-    <Compile Include="Model\IWundergroundData.cs" />
     <Compile Include="Model\IWundergroundDataProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -12,7 +12,7 @@ using WundergroundNetLib.Interfaces;
 
 namespace WundergroundNetLib
 {
-    public class JsonDeserializer : IJsonDeserializer
+    public class JsonDeserializer
     {
         /// <summary>
         /// Convert json file from string into deserialized WundergroundData object as an asynchronous operation.
@@ -85,7 +85,7 @@ namespace WundergroundNetLib
                         Sunrise = string.Format("{0}:{1}", (string)jObject["sun_phase"]["sunrise"]["hour"], (string)jObject["sun_phase"]["sunrise"]["minute"]),  // sun_phase / sunrise / hour : "6" / minute : "18"
                         Sunset = string.Format("{0}:{1}", (string)jObject["sun_phase"]["sunset"]["hour"], (string)jObject["sun_phase"]["sunset"]["minute"]),
                     },
-                    fourDayForecast = new List<IForecast>()
+                    fourDayForecast = new List<Forecast>()
                     {
                         new Forecast()
                         {
