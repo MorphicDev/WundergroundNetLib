@@ -4,9 +4,7 @@ using System.Net;
 using System.Net.Http;
 using System.Threading;
 
-using WundergroundNetLib.Interfaces;
-
-namespace WundergroundNetLib
+namespace WundergroundNetLib.Model
 {
     public class JsonProvider
     {

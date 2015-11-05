@@ -6,9 +6,7 @@ using System.Threading.Tasks;
 using System.IO;
 using WundergroundNetLib.Properties;
 
-using WundergroundNetLib.Interfaces;
-
-namespace WundergroundNetLib
+namespace WundergroundNetLib.Model
 {
     /// <summary>
     /// You will need to create your own Wunderground API key. 

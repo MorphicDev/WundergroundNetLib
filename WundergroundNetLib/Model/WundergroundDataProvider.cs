@@ -4,7 +4,7 @@ using Newtonsoft.Json;
 using WundergroundNetLib.Interfaces;
 using WundergroundNetLib.Data;
 
-namespace WundergroundNetLib
+namespace WundergroundNetLib.Model
 {
     public class WundergroundDataProvider : IWundergroundDataProvider
     {

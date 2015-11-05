@@ -9,7 +9,7 @@ using System.IO;
 using System.Diagnostics;
 using WundergroundNetLib.Data;
 
-namespace WundergroundNetLib
+namespace WundergroundNetLib.Model
 {
     public class JsonDeserializer
     {

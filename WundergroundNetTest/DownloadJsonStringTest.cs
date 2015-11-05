@@ -1,6 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using WundergroundNetLib;
+using WundergroundNetLib.Model;
 using System.Threading.Tasks;
 
 namespace WundergroundNetTest
