@@ -18,11 +18,11 @@ namespace WundergroundNetLib.Model
         /// </summary>
         /// <param name="jsonData"></param>
         /// <returns></returns>
-        public async Task<WundergroundData> JsonToWeatherDataAsync(string jsonData)
+        public async Task<WundergroundWeatherData> JsonToWeatherDataAsync(string jsonData)
         {
             JObject jObject = await ParseJsonFile(jsonData);
             // Deserialize jObject into Weather Data classes
-            WundergroundData weatherData = await DeserializeJObjIntoWeatherData(jObject);
+            WundergroundWeatherData weatherData = await DeserializeJObjIntoWeatherData(jObject);
             return weatherData;
         }
 
@@ -46,11 +46,11 @@ namespace WundergroundNetLib.Model
         /// </summary>
         /// <param name="jObject"></param>
         /// <returns></returns>
-        internal async Task<WundergroundData> DeserializeJObjIntoWeatherData(JObject jObject)
+        internal async Task<WundergroundWeatherData> DeserializeJObjIntoWeatherData(JObject jObject)
         {
-            WundergroundData weatherData = await Task.Run(() =>
+            WundergroundWeatherData weatherData = await Task.Run(() =>
             {
-                weatherData = new WundergroundData()
+                weatherData = new WundergroundWeatherData()
                 {
                     ObservationLocation = new ObservationLocation()
                     {

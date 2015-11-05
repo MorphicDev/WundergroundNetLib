@@ -34,7 +34,7 @@ namespace WundergroundNetLib.Model
         /// <param name="location"></param>
         /// <param name="dataFeatures"></param>
         /// <returns></returns>
-        public async Task<WundergroundData> GetWundergroundWeatherDataAsync(string latitude, string longitude)
+        public async Task<WundergroundWeatherData> GetWundergroundWeatherDataAsync(string latitude, string longitude)
         {
             UriProvider uriProvider = new UriProvider();
             Uri pwsUri = uriProvider.CreateCombinedDataUriFromCoordinates(latitude, longitude);
@@ -48,7 +48,7 @@ namespace WundergroundNetLib.Model
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
         /// <returns></returns>
-        public async Task<WundergroundData> GetWundergroundWeatherDataAsync(double latitude, double longitude)
+        public async Task<WundergroundWeatherData> GetWundergroundWeatherDataAsync(double latitude, double longitude)
         {
             UriProvider uriProvider = new UriProvider();
             Uri pwsUri = uriProvider.CreateCombinedDataUriFromCoordinates(latitude, longitude);
@@ -61,7 +61,7 @@ namespace WundergroundNetLib.Model
         /// </summary>
         /// <param name="stationID"></param>
         /// <returns></returns>
-        public async Task<WundergroundData> GetWundergroundWeatherDataAsync(string stationID)
+        public async Task<WundergroundWeatherData> GetWundergroundWeatherDataAsync(string stationID)
         {
             UriProvider uriProvider = new UriProvider();
             Uri pwsUri = uriProvider.CreateCombinedDataUriFromPwsStationID(stationID);
@@ -73,7 +73,7 @@ namespace WundergroundNetLib.Model
         /// </summary>
         /// <param name="pwsUri"></param>
         /// <returns></returns>
-        private async Task<WundergroundData> CombinedWeatherDataAsync(Uri pwsUri)
+        private async Task<WundergroundWeatherData> CombinedWeatherDataAsync(Uri pwsUri)
         {
             // Download Json data
             JsonProvider jsonProvider = new JsonProvider();

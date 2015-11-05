@@ -8,7 +8,7 @@ using WundergroundNetLib.Interfaces;
 
 namespace WundergroundNetLib.Data
 {
-    public class WundergroundData
+    public class WundergroundWeatherData
     {
         public ObservationLocation ObservationLocation { get; set; }
         public CurrentConditions CurrentConditions { get; set; }
