@@ -20,7 +20,7 @@ namespace WundergroundNetTest
             // Act
             var weatherData = jsonDeserializer.JsonToWeatherDataAsync(jsonData);
 
-            string obsCity = weatherData.Result.observationLocation.City;
+            string obsCity = weatherData.Result.ObservationLocation.City;
             // Assert
             Assert.IsNotNull(obsCity);
         }

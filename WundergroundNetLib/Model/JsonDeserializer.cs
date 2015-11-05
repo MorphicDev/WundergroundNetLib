@@ -52,7 +52,7 @@ namespace WundergroundNetLib
             {
                 weatherData = new WundergroundData()
                 {
-                    observationLocation = new ObservationLocation()
+                    ObservationLocation = new ObservationLocation()
                     {
                         City = (string)jObject["current_observation"]["display_location"]["city"],
                         //City = (string)jObject["forecast"]["simpleforecast"]["forecastday"][0]["icon"],
@@ -63,7 +63,7 @@ namespace WundergroundNetLib
                         StationID = (string)jObject["current_observation"]["station_id"],
                         WmoNumber = (int)jObject["current_observation"]["display_location"]["wmo"]
                     },
-                    currentConditions = new CurrentConditions()
+                    CurrentConditions = new CurrentConditions()
                     {
                         ObservationTime = (DateTime)jObject["current_observation"]["observation_time_rfc822"], // observation_time_rfc822 : "Fri, 30 Oct 2015 07:56:47 +1300"
                         CurrentDescription = (string)jObject["current_observation"]["weather"], // weather : "Rain"
@@ -84,7 +84,7 @@ namespace WundergroundNetLib
                         Sunrise = string.Format("{0}:{1}", (string)jObject["sun_phase"]["sunrise"]["hour"], (string)jObject["sun_phase"]["sunrise"]["minute"]),  // sun_phase / sunrise / hour : "6" / minute : "18"
                         Sunset = string.Format("{0}:{1}", (string)jObject["sun_phase"]["sunset"]["hour"], (string)jObject["sun_phase"]["sunset"]["minute"]),
                     },
-                    fourDayForecast = new List<Forecast>()
+                    FourDayForecast = new List<Forecast>()
                     {
                         new Forecast()
                         {

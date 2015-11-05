@@ -10,9 +10,9 @@ namespace WundergroundNetLib.Data
 {
     public class WundergroundData
     {
-        public ObservationLocation observationLocation { get; set; }
-        public CurrentConditions currentConditions { get; set; }
-        public List<Forecast> fourDayForecast { get; set; }
+        public ObservationLocation ObservationLocation { get; set; }
+        public CurrentConditions CurrentConditions { get; set; }
+        public List<Forecast> FourDayForecast { get; set; }
     }
 
     public class ObservationLocation
