@@ -40,10 +40,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data\ICurrentTemp.cs" />
-    <Compile Include="Data\IForecastTemp.cs" />
+    <Compile Include="Data\ICurrentTemperature.cs" />
+    <Compile Include="Data\IDetailedDescriptions.cs" />
+    <Compile Include="Data\IGeneralLocation.cs" />
+    <Compile Include="Data\IHighLowTemperatures.cs" />
+    <Compile Include="Data\IOberservationDay.cs" />
+    <Compile Include="Data\IObservationTime.cs" />
+    <Compile Include="Data\IPrecipitationObservation.cs" />
+    <Compile Include="Data\IPressureMb.cs" />
     <Compile Include="Data\IRelativeHumidity.cs" />
+    <Compile Include="Data\ISimpleDescription.cs" />
+    <Compile Include="Data\ISunriseSunset.cs" />
+    <Compile Include="Data\IUvIndex.cs" />
+    <Compile Include="Data\IVisibility.cs" />
+    <Compile Include="Data\IWeatherIcon.cs" />
+    <Compile Include="Data\IWeatherStationCoordinates.cs" />
     <Compile Include="Data\IWind.cs" />
+    <Compile Include="Data\IWmoNumber.cs" />
+    <Compile Include="Data\IWundergroundStationID.cs" />
     <Compile Include="Model\IWundergroundDataProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

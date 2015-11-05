@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace WundergroundNetLib.Interfaces.Data
 {
-    public interface IForecastTemp
+    public interface IWmoNumber
     {
-        double HighCelcius { get; set; }
-        double LowCelcius { get; set; }
+        int WmoNumber { get; set; }
     }
 }

@@ -27,7 +27,6 @@ namespace WundergroundNetConsole
             Console.WriteLine("Country \t\t{0}", WeatherData.Result.observationLocation.Country);
             Console.WriteLine("StationLatitude \t{0}", WeatherData.Result.observationLocation.StationLatitude);
             Console.WriteLine("StationLongitude \t{0}", WeatherData.Result.observationLocation.StationLongitude);
-            Console.WriteLine("StationElevation \t{0}", WeatherData.Result.observationLocation.StationElevation);
             Console.WriteLine("StationID \t\t{0}", WeatherData.Result.observationLocation.StationID);
             Console.WriteLine("WmoNumber \t\t{0}", WeatherData.Result.observationLocation.WmoNumber);
 
@@ -37,7 +36,7 @@ namespace WundergroundNetConsole
             Console.WriteLine();
 
             Console.WriteLine("ObservationTime \t\t{0}", WeatherData.Result.currentConditions.ObservationTime);
-            Console.WriteLine("CurrentDescription \t\t{0}", WeatherData.Result.currentConditions.CurrentDescription);
+            Console.WriteLine("SimpleDescription \t\t{0}", WeatherData.Result.currentConditions.CurrentDescription);
             Console.WriteLine("TempCelsius \t\t\t{0}", WeatherData.Result.currentConditions.TempCelsius);
             Console.WriteLine("RelativeHumidity \t\t{0}", WeatherData.Result.currentConditions.RelativeHumidity);
             Console.WriteLine("WindDescription \t\t{0}", WeatherData.Result.currentConditions.WindDescription);
@@ -64,7 +63,7 @@ namespace WundergroundNetConsole
             {
                 Console.WriteLine("Day \t\t\t\t{0}", item.Day);
                 Console.WriteLine("------------------------------------");
-                Console.WriteLine("Date \t\t\t\t{0}", item.Date);
+                Console.WriteLine("ObservationTime \t\t\t\t{0}", item.Date);
                 Console.WriteLine("SimpleDescription \t\t{0}", item.SimpleDescription);
                 Console.WriteLine("DetailedDescriptionDay \t\t{0}", item.DetailedDescriptionDay);
                 Console.WriteLine("DetailedDescriptionNight \t{0}", item.DetailedDescriptionNight);
@@ -74,6 +73,7 @@ namespace WundergroundNetConsole
                 Console.WriteLine("WindAvgKph \t\t\t{0}", item.WindAvgKph);
                 Console.WriteLine("WindGustKph \t\t\t{0}", item.WindGustKph);
                 Console.WriteLine("WindDirection \t\t\t{0}", item.WindDirection);
+                Console.WriteLine("WindDirection \t\t\t{0}", item.WindDegrees);
                 Console.WriteLine("WeatherIcon \t\t\t{0}", item.WeatherIcon);
                 Console.WriteLine("WeatherIconUrl \t\t\t{0}", item.WeatherIconUrl);
                 Console.WriteLine();

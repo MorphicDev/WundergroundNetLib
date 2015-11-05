@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace WundergroundNetLib.Interfaces.Data
 {
-    public interface ICurrentTemp
+    public interface IPrecipitationObservation
     {
-        double TempCelsius { get; set; }
+        double PrecipLastHr { get; set; }
+        double PrecipToday { get; set; }
     }
 }
