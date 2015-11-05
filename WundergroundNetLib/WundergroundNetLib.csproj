@@ -51,9 +51,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\WundergroundDataProvider.cs" />
-    <Compile Include="Json\JsonDeserializer.cs" />
-    <Compile Include="Model\WundergroundData.cs" />
-    <Compile Include="Json\JsonProvider.cs" />
+    <Compile Include="Model\JsonDeserializer.cs" />
+    <Compile Include="Data\WundergroundData.cs" />
+    <Compile Include="Model\JsonProvider.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

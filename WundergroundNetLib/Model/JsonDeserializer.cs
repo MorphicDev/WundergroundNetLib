@@ -7,8 +7,7 @@ using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
 using System.IO;
 using System.Diagnostics;
-
-using WundergroundNetLib.Interfaces;
+using WundergroundNetLib.Data;
 
 namespace WundergroundNetLib
 {
@@ -19,11 +18,11 @@ namespace WundergroundNetLib
         /// </summary>
         /// <param name="jsonData"></param>
         /// <returns></returns>
-        public async Task<IWundergroundData> JsonToWeatherDataAsync(string jsonData)
+        public async Task<WundergroundData> JsonToWeatherDataAsync(string jsonData)
         {
             JObject jObject = await ParseJsonFile(jsonData);
             // Deserialize jObject into Weather Data classes
-            IWundergroundData weatherData = await DeserializeJObjIntoWeatherData(jObject);
+            WundergroundData weatherData = await DeserializeJObjIntoWeatherData(jObject);
             return weatherData;
         }
 
@@ -47,9 +46,9 @@ namespace WundergroundNetLib
         /// </summary>
         /// <param name="jObject"></param>
         /// <returns></returns>
-        internal async Task<IWundergroundData> DeserializeJObjIntoWeatherData(JObject jObject)
+        internal async Task<WundergroundData> DeserializeJObjIntoWeatherData(JObject jObject)
         {
-            IWundergroundData weatherData = await Task.Run(() =>
+            WundergroundData weatherData = await Task.Run(() =>
             {
                 weatherData = new WundergroundData()
                 {
