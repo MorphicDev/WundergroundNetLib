@@ -69,7 +69,6 @@ namespace WundergroundNetLib.Model
                         CurrentDescription = (string)jObject["current_observation"]["weather"], // weather : "Rain"
                         TempCelsius = (double)jObject["current_observation"]["temp_c"], // temp_c : 4.9 - convert to double
                         RelativeHumidity = (string)jObject["current_observation"]["relative_humidity"], // relative_humidity : "86%"
-                        WindDescription = (string)jObject["current_observation"]["wind_string"], // wind_string : "From the WSW at 1.0 MPH Gusting to 2.0 MPH"
                         WindDirection = (string)jObject["current_observation"]["wind_dir"], // wind_dir : "WSW" ---> Could change this to enum
                         WindDegrees = (int)jObject["current_observation"]["wind_degrees"],  // wind_degrees : 247
                         WindAvgKph = (double)jObject["current_observation"]["wind_kph"], // wind_kph : 1.6

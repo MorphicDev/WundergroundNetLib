@@ -25,13 +25,12 @@ namespace WundergroundNetLib.Data
         public int WmoNumber { get; set; } // wmo : "93780" / display_location
     }
 
-    public class CurrentConditions : ICurrentTemp, IRelativeHumidity
+    public class CurrentConditions : ICurrentTemp, IRelativeHumidity, IWind
     {
         public DateTime ObservationTime { get; set; } // observation_time_rfc822 : "Fri, 30 Oct 2015 07:56:47 +1300"
         public string CurrentDescription { get; set; } // weather : "Rain"
         public double TempCelsius { get; set; } // temp_c : 4.9 - convert to double
         public string RelativeHumidity { get; set; } // relative_humidity : "86%"
-        public string WindDescription { get; set; } // wind_string : "From the WSW at 1.0 MPH Gusting to 2.0 MPH"
         public string WindDirection { get; set; } // wind_dir : "WSW" ---> Could change this to enum
         public int WindDegrees { get; set; } // wind_degrees : 247
         public double WindAvgKph { get; set; } // wind_kph : 1.6
@@ -47,7 +46,7 @@ namespace WundergroundNetLib.Data
         public string Sunset { get; set; } // sun_phase / sunset etc
     }
 
-    public class Forecast : IRelativeHumidity
+    public class Forecast : IRelativeHumidity, IWind
     {
         public string Day { get; set; }  // simpleforecast / forecastday / date / weekday_short
         public DateTime Date { get; set; } // simpleforecast / forecastday / date / year, month, day
