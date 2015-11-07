@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.IO;
 using WundergroundNetLib.Properties;
 
 namespace WundergroundNetLib.Model
@@ -14,9 +9,8 @@ namespace WundergroundNetLib.Model
     /// Add that key to a file called WundergroundApiKey.txt inside the folder called keys.
     /// Resources.WundergroundApiKey references the internal resource for that key
     /// </summary>
-    public class UriProvider
+    internal class UriProvider
     {
-
         /// <summary>
         /// Create URI for conditions/forecast/astronomy based on your latitude and longitude.
         /// Ensure that you are providing latitude and longitude in the correct order as doubles.

@@ -6,7 +6,7 @@ using System.Threading;
 
 namespace WundergroundNetLib.Model
 {
-    public class JsonProvider
+    internal class JsonProvider
     {
         /// <summary>
         /// Send a GET request using HttpClient and download a json string from specified Uri as an asynchronous operation.

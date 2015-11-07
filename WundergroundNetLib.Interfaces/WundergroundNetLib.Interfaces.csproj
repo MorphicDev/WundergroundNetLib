@@ -58,6 +58,7 @@
     <Compile Include="Data\IWind.cs" />
     <Compile Include="Data\IWmoNumber.cs" />
     <Compile Include="Data\IWundergroundStationID.cs" />
+    <Compile Include="Data\IWundergroundWeatherData.cs" />
     <Compile Include="Model\IWundergroundDataProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

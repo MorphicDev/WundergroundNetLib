@@ -7,19 +7,14 @@ using WundergroundNetLib.Interfaces.Data;
 
 namespace WundergroundNetLib.Data
 {
-    public class WundergroundWeatherData
+    public class WundergroundWeatherData : IWundergroundWeatherData
     {
-        ObservationLocation ObservationLocation { get; set; }
-        public CurrentConditions CurrentConditions { get; set; }
-        public List<Forecast> FourDayForecast { get; set; }
-
-        IWeatherStationCoordinates GetWind ()
-        {
-            return ObservationLocation;
-        }
+        public IObservationLocationInfo ObservationLocationInfo { get; set; }
+        public ICurrentConditions CurrentConditions { get; set; }
+        public List<IForecast> FourDayForecast { get; set; } //= new List<IForecast>();
     }
 
-    class ObservationLocation : IGeneralLocation, IWeatherStationCoordinates, IWundergroundStationID, IWmoNumber
+    public class ObservationLocationInfo : IObservationLocationInfo // IObservationLocationInfo includes: IGeneralLocation, IWeatherStationCoordinates, IWundergroundStationID, IWmoNumber
     {
         public string City { get; set; } /// city : "Christchurch" / display_location
         public string Country { get; set; } /// country_iso3166 : "NZ" / observation_location
@@ -29,7 +24,7 @@ namespace WundergroundNetLib.Data
         public int WmoNumber { get; set; } /// wmo : "93780" / display_location
     }
 
-    public class CurrentConditions : IObservationTime, ISimpleDescription, ICurrentTemperature, IRelativeHumidity, IWind, IPressureMb, IUvIndex, IVisibility, IPrecipitationObservation, IWeatherIcon, ISunriseSunset
+    public class CurrentConditions : ICurrentConditions // ICurrentConditions includes: IObservationTime, ISimpleDescription, ICurrentTemperature, IRelativeHumidity, IWind, IPressureMb, IUvIndex, IVisibility, IPrecipitationObservation, IWeatherIcon, ISunriseSunset
     {
         public DateTime ObservationTime { get; set; } /// observation_time_rfc822 : "Fri, 30 Oct 2015 07:56:47 +1300"
         public string SimpleDescription { get; set; } /// weather : "Rain"
@@ -50,7 +45,7 @@ namespace WundergroundNetLib.Data
         public string Sunset { get; set; } /// sun_phase / sunset etc
     }
 
-    public class Forecast : IOberservationDay, IObservationTime, ISimpleDescription, IDetailedDescriptions, IRelativeHumidity, IWind, IHighLowTemperatures, IWeatherIcon
+    public class Forecast : IForecast // IForecast includes: IOberservationDay, IObservationTime, ISimpleDescription, IDetailedDescriptions, IRelativeHumidity, IWind, IHighLowTemperatures, IWeatherIcon
     {
         public string Day { get; set; }  /// simpleforecast / forecastday / date / weekday_short
         public DateTime ObservationTime { get; set; } /// simpleforecast / forecastday / date / year, month, day

@@ -2,6 +2,8 @@
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using WundergroundNetLib.Interfaces;
+using WundergroundNetLib.Interfaces.Data;
+using WundergroundNetLib.Interfaces.Model;
 using WundergroundNetLib.Data;
 
 namespace WundergroundNetLib.Model
@@ -34,7 +36,7 @@ namespace WundergroundNetLib.Model
         /// <param name="location"></param>
         /// <param name="dataFeatures"></param>
         /// <returns></returns>
-        public async Task<WundergroundWeatherData> GetWundergroundWeatherDataAsync(string latitude, string longitude)
+        public async Task<IWundergroundWeatherData> GetWundergroundWeatherDataAsync(string latitude, string longitude)
         {
             UriProvider uriProvider = new UriProvider();
             Uri pwsUri = uriProvider.CreateCombinedDataUriFromCoordinates(latitude, longitude);
@@ -48,7 +50,7 @@ namespace WundergroundNetLib.Model
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
         /// <returns></returns>
-        public async Task<WundergroundWeatherData> GetWundergroundWeatherDataAsync(double latitude, double longitude)
+        public async Task<IWundergroundWeatherData> GetWundergroundWeatherDataAsync(double latitude, double longitude)
         {
             UriProvider uriProvider = new UriProvider();
             Uri pwsUri = uriProvider.CreateCombinedDataUriFromCoordinates(latitude, longitude);
@@ -61,7 +63,7 @@ namespace WundergroundNetLib.Model
         /// </summary>
         /// <param name="stationID"></param>
         /// <returns></returns>
-        public async Task<WundergroundWeatherData> GetWundergroundWeatherDataAsync(string stationID)
+        public async Task<IWundergroundWeatherData> GetWundergroundWeatherDataAsync(string stationID)
         {
             UriProvider uriProvider = new UriProvider();
             Uri pwsUri = uriProvider.CreateCombinedDataUriFromPwsStationID(stationID);
@@ -73,7 +75,7 @@ namespace WundergroundNetLib.Model
         /// </summary>
         /// <param name="pwsUri"></param>
         /// <returns></returns>
-        private async Task<WundergroundWeatherData> CombinedWeatherDataAsync(Uri pwsUri)
+        private async Task<IWundergroundWeatherData> CombinedWeatherDataAsync(Uri pwsUri)
         {
             // Download Json data
             JsonProvider jsonProvider = new JsonProvider();

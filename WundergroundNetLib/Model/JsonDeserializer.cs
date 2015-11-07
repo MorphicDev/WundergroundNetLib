@@ -4,25 +4,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
-using Newtonsoft.Json;
-using System.IO;
-using System.Diagnostics;
 using WundergroundNetLib.Data;
+using WundergroundNetLib.Interfaces.Data;
 
 namespace WundergroundNetLib.Model
 {
-    public class JsonDeserializer
+    internal class JsonDeserializer
     {
         /// <summary>
         /// Convert json file from string into deserialized WundergroundData object as an asynchronous operation.
         /// </summary>
         /// <param name="jsonData"></param>
         /// <returns></returns>
-        public async Task<WundergroundWeatherData> JsonToWeatherDataAsync(string jsonData)
+        public async Task<IWundergroundWeatherData> JsonToWeatherDataAsync(string jsonData)
         {
             JObject jObject = await ParseJsonFile(jsonData);
             // Deserialize jObject into Weather Data classes
-            WundergroundWeatherData weatherData = await DeserializeJObjIntoWeatherData(jObject);
+            IWundergroundWeatherData weatherData = await DeserializeJObjIntoWeatherData(jObject) as IWundergroundWeatherData;
             return weatherData;
         }
 
@@ -46,13 +44,13 @@ namespace WundergroundNetLib.Model
         /// </summary>
         /// <param name="jObject"></param>
         /// <returns></returns>
-        internal async Task<WundergroundWeatherData> DeserializeJObjIntoWeatherData(JObject jObject)
+        internal async Task<IWundergroundWeatherData> DeserializeJObjIntoWeatherData(JObject jObject)
         {
-            WundergroundWeatherData weatherData = await Task.Run(() =>
+            IWundergroundWeatherData weatherData = await Task.Run(() =>
             {
                 weatherData = new WundergroundWeatherData()
                 {
-                    ObservationLocation = new ObservationLocation()
+                    ObservationLocationInfo = new ObservationLocationInfo()
                     {
                         City = (string)jObject["current_observation"]["display_location"]["city"],
                         //City = (string)jObject["forecast"]["simpleforecast"]["forecastday"][0]["icon"],
@@ -82,7 +80,7 @@ namespace WundergroundNetLib.Model
                         Sunrise = string.Format("{0}:{1}", (string)jObject["sun_phase"]["sunrise"]["hour"], (string)jObject["sun_phase"]["sunrise"]["minute"]),  // sun_phase / sunrise / hour : "6" / minute : "18"
                         Sunset = string.Format("{0}:{1}", (string)jObject["sun_phase"]["sunset"]["hour"], (string)jObject["sun_phase"]["sunset"]["minute"]),
                     },
-                    FourDayForecast = new List<Forecast>()
+                    FourDayForecast = new List<IForecast>()
                     {
                         new Forecast()
                         {
