@@ -4,17 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{3BFBEDA5-8324-4C08-8848-AAF3E79A2E54}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{9DF9530D-416D-42E6-BF51-FC6715263DF0}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>WundergroundNetConsole</RootNamespace>
-    <AssemblyName>WundergroundNetConsole</AssemblyName>
+    <RootNamespace>WundergroundNetLib.Interfaces</RootNamespace>
+    <AssemblyName>WundergroundNetLib.Interfaces</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -43,22 +40,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="Data\ICurrentTemperature.cs" />
+    <Compile Include="Data\IDetailedDescriptions.cs" />
+    <Compile Include="Data\IGeneralLocation.cs" />
+    <Compile Include="Data\IHighLowTemperatures.cs" />
+    <Compile Include="Data\IOberservationDay.cs" />
+    <Compile Include="Data\IObservationTime.cs" />
+    <Compile Include="Data\IPrecipitationObservation.cs" />
+    <Compile Include="Data\IPressureMb.cs" />
+    <Compile Include="Data\IRelativeHumidity.cs" />
+    <Compile Include="Data\ISimpleDescription.cs" />
+    <Compile Include="Data\ISunriseSunset.cs" />
+    <Compile Include="Data\IUvIndex.cs" />
+    <Compile Include="Data\IVisibility.cs" />
+    <Compile Include="Data\IWeatherIcon.cs" />
+    <Compile Include="Data\IWeatherStationCoordinates.cs" />
+    <Compile Include="Data\IWind.cs" />
+    <Compile Include="Data\IWmoNumber.cs" />
+    <Compile Include="Data\IWundergroundStationID.cs" />
+    <Compile Include="Data\IWundergroundWeatherData.cs" />
+    <Compile Include="Model\IWundergroundDataProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\WundergroundNetLib.Interfaces\WundergroundNetLib.Interfaces.csproj">
-      <Project>{9df9530d-416d-42e6-bf51-fc6715263df0}</Project>
-      <Name>WundergroundNetLib.Interfaces</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\WundergroundNetLib\WundergroundNetLib.csproj">
-      <Project>{9a1b633b-a546-4024-8380-e64a1d271168}</Project>
-      <Name>WundergroundNetLib</Name>
-    </ProjectReference>
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

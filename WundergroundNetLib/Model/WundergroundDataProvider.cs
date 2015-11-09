@@ -1,11 +1,33 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using WundergroundNetLib.Interfaces;
+using WundergroundNetLib.Interfaces.Data;
+using WundergroundNetLib.Interfaces.Model;
+using WundergroundNetLib.Data;
 
-namespace WundergroundNetLib
+namespace WundergroundNetLib.Model
 {
-    public class WundergroundDataProvider
+    public class WundergroundDataProvider : IWundergroundDataProvider
     {
+        // Create a singleton
+        private static readonly WundergroundDataProvider _provider = new WundergroundDataProvider();
+
+        static WundergroundDataProvider() { }
+        private WundergroundDataProvider() { }
+
+        /// <summary>
+        /// Static thread safe singleton class instantes a WundergroundDataProvider where none exist at the point 
+        /// of retrieval ensuring only one instance is created within scope, when required.
+        /// </summary>
+        public static WundergroundDataProvider DefaultProvider
+        {
+            get
+            {
+                return _provider;
+            }
+        }
+
         /// <summary>
         /// Get the combined json file including conditions, forecast and astronomy data and deserialise into 
         /// customised weather data classes using your string coordinates, executed as an asynchronous operation.
@@ -14,7 +36,7 @@ namespace WundergroundNetLib
         /// <param name="location"></param>
         /// <param name="dataFeatures"></param>
         /// <returns></returns>
-        public async Task<WundergroundData> GetWundergroundWeatherDataAsync(string latitude, string longitude)
+        public async Task<IWundergroundWeatherData> GetWundergroundWeatherDataAsync(string latitude, string longitude)
         {
             UriProvider uriProvider = new UriProvider();
             Uri pwsUri = uriProvider.CreateCombinedDataUriFromCoordinates(latitude, longitude);
@@ -28,7 +50,7 @@ namespace WundergroundNetLib
         /// <param name="latitude"></param>
         /// <param name="longitude"></param>
         /// <returns></returns>
-        public async Task<WundergroundData> GetWundergroundWeatherDataAsync(double latitude, double longitude)
+        public async Task<IWundergroundWeatherData> GetWundergroundWeatherDataAsync(double latitude, double longitude)
         {
             UriProvider uriProvider = new UriProvider();
             Uri pwsUri = uriProvider.CreateCombinedDataUriFromCoordinates(latitude, longitude);
@@ -41,7 +63,7 @@ namespace WundergroundNetLib
         /// </summary>
         /// <param name="stationID"></param>
         /// <returns></returns>
-        public async Task<WundergroundData> GetWundergroundWeatherDataAsync(string stationID)
+        public async Task<IWundergroundWeatherData> GetWundergroundWeatherDataAsync(string stationID)
         {
             UriProvider uriProvider = new UriProvider();
             Uri pwsUri = uriProvider.CreateCombinedDataUriFromPwsStationID(stationID);
@@ -53,7 +75,7 @@ namespace WundergroundNetLib
         /// </summary>
         /// <param name="pwsUri"></param>
         /// <returns></returns>
-        private async Task<WundergroundData> CombinedWeatherDataAsync(Uri pwsUri)
+        private async Task<IWundergroundWeatherData> CombinedWeatherDataAsync(Uri pwsUri)
         {
             // Download Json data
             JsonProvider jsonProvider = new JsonProvider();

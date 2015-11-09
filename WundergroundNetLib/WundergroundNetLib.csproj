@@ -50,17 +50,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="WundergroundDataProvider.cs" />
-    <Compile Include="JsonDeserializer.cs" />
-    <Compile Include="WundergroundData.cs" />
-    <Compile Include="JsonProvider.cs" />
+    <Compile Include="Model\WundergroundDataProvider.cs" />
+    <Compile Include="Model\JsonDeserializer.cs" />
+    <Compile Include="Data\WundergroundWeatherData.cs" />
+    <Compile Include="Model\JsonProvider.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UriProvider.cs" />
+    <Compile Include="Model\UriProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -76,6 +76,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="keys\WundergroundApiKey.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WundergroundNetLib.Interfaces\WundergroundNetLib.Interfaces.csproj">
+      <Project>{9df9530d-416d-42e6-bf51-fc6715263df0}</Project>
+      <Name>WundergroundNetLib.Interfaces</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

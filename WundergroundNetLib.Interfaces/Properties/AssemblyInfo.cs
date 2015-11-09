@@ -5,17 +5,14 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("WundergroundNetLib")]
+[assembly: AssemblyTitle("WundergroundNetLib.Interfaces")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("WundergroundNetLib")]
+[assembly: AssemblyProduct("WundergroundNetLib.Interfaces")]
 [assembly: AssemblyCopyright("Copyright ©  2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
-
-// Allow the WundergroundNetTest project to access this assembly
-[assembly: InternalsVisibleTo("WundergroundNetTest")]
 
 // Setting ComVisible to false makes the types in this assembly not visible 
 // to COM components.  If you need to access a type in this assembly from 
@@ -23,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("9a1b633b-a546-4024-8380-e64a1d271168")]
+[assembly: Guid("9df9530d-416d-42e6-bf51-fc6715263df0")]
 
 // Version information for an assembly consists of the following four values:
 //
