@@ -60,6 +60,8 @@
     <Compile Include="Data\IWundergroundStationID.cs" />
     <Compile Include="Data\IWundergroundWeatherData.cs" />
     <Compile Include="Model\IWundergroundDataProvider.cs" />
+    <Compile Include="Plugin\WeatherServiceOperationNotSupportedException.cs" />
+    <Compile Include="Plugin\WeatherServiceProviderException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
