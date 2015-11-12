@@ -1,5 +1,5 @@
 # WundergroundNetLib
-[![Join the chat at https://gitter.im/MorphicDev/WundergroundNetLib](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/MorphicDev/WundergroundNetLib?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/d7gdau0ltme8147b?svg=true)](https://ci.appveyor.com/project/nevercast/wundergroundnetlib) [![Join the chat at https://gitter.im/MorphicDev/WundergroundNetLib](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/MorphicDev/WundergroundNetLib?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 ## Description
 
 A Wunderground wrapper for C# that provides a simple way to retrieve various data features from Wunderground personal weather stations (pws).
